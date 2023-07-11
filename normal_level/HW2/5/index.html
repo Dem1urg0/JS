@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+
+<script>'use strict'
+
+/*
+Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation),
+где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от
+переданного значения операции (использовать switch) выполнить одну из арифметических операций
+(использовать функции из задания 4) и вернуть полученное значение.
+ */
+
+
+function MyFunc(arg1, arg2, operation) {
+    operation = prompt('Введите название операции')
+    arg1 = prompt('Введите первую переменную')
+    arg2 = prompt('Введите вторую переменную')
+    let answer
+
+    if (isNaN(arg1) && isNaN(arg2)) {
+        alert("Ошибка, введите число правильно")
+        MyFunc()
+    } else
+        switch (operation) {
+            case('сложение'):
+                answer = Number(arg1) + Number(arg2);
+                return answer;
+            case('вычитание'):
+                answer = Number(arg1) - Number(arg2);
+                return answer;
+            case('умножение'):
+                answer = Number(arg1) * Number(arg2);
+                return answer;
+            case('деление'):
+                answer = Number(arg1) / Number(arg2);
+                return answer;
+            default:
+                alert("Такой операции нет, попробуйте еще раз")
+                answer = MyFunc();
+                return answer;
+        }
+}
+
+alert(MyFunc())
+
+
+</script>
+</body>
+</html>
