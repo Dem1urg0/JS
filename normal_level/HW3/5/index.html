@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+
+<script>'use strict';
+/*
+Дан массив (создать такой же, с такими же значениями):
+```
+const arr = [
+  [2, 4, 6],
+  [1, 5, 10],
+  [7, 4, 1],
+];
+```
+Задания:
+1. Найти массив, у которого сумма всех чисел максимальна, вывести в console.log индекс этого массива.
+2. Получить и вывести в console.log минимальное значение найденное в массиве, который мы получили в
+первом пункте.
+ */
+const arr = [
+    [2, 4, 6],
+    [1, 5, 10],
+    [7, 4, 1],
+];
+
+console.log(`ID массива с наибольшей суммой чисел: ${MaxSumID(SummArray(arr))}`);
+console.log(`Минимальная сумма чисел массива: ${MinNumber(SummArray(arr))}`);
+
+/**
+ * Функция находит наибольшее число одномерного массива
+ * @param Array - одномерный массив
+ * @returns {index} - Наименьшая сумма чисел массива
+ */
+function MinNumber(Array) {
+    let min = Array[0]
+    for (let i = 1; i <= (Array.length - 1); i++) {
+        if (min < Array[i]) {
+        } else {
+            min = Array[i];
+        }
+    }
+    return min;
+}
+
+/**
+ * Функция находит наибольшее число одномерного массива
+ * @param Array - одномерный массив
+ * @returns {index} - индекс числа с наибольшей суммой чисел
+ */
+function MaxSumID(Array) {
+    let max = Array[0];
+    let index;
+    for (let i = 1; i <= (Array.length - 1); i++) {
+        if (max > Array[i]) {
+            index = i-1
+        } else {
+            max = Array[i];
+            index = i
+        }
+    }
+    return index;
+}
+
+/**
+ * Функция находить сумму элементов строк массива и возвращает их в виде массива
+ * @param Array - двумерный массив чисел
+ * @returns {sumArr} - одномерный массив сумм строк
+ */
+function SummArray(Array) {
+    let sumArr = [];
+    for (let i = 0; i < Array.length; i++) {
+        let sum = 0
+        for (let j = 0; j < Array.length; sum += Array[i][j], j++) {
+        }
+        sumArr.push(sum);
+    }
+    return sumArr;
+}
+</script>
+</body>
+</html>
