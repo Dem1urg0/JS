@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+
+<script>'use strict';
+
+/*
+Написать функцию, преобразующую число в объект. Передавая на вход число в диапазоне [0, 999],
+мы должны получить на выходе объект, в котором в соответствующих свойствах описаны разряды числа:
+ - единицы (в свойстве firstDigit)
+ - десятки (в свойстве secondDigit)
+ - сотни (в свойстве thirdDigit)
+Например, для числа 45 мы должны получить следующий объект:
+```
+{
+  firstDigit: 5,
+  secondDigit: 4,
+  thirdDigit: 0,
+}
+```
+Если число было передано вне [0, 999] диапазона, не целое число или вообще не число,
+необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект.
+ */
+
+/**
+ * Функция записывает трехзначное число в объект, где каждая цифра будет в своем свойстве
+ * @param number - трезначное число
+ * @returns {objectNumber} - объект с числом
+ */
+function numberInObj(number) {
+    let objectNumber = {
+        firstDigit: undefined,
+        secondDigit: undefined,
+        thirdDigit: undefined,
+    }
+    if ((Number(number) >= 0 && Number(number) <= 999 && Number.isInteger(Number(number)))) {
+        objectNumber.firstDigit = number % 10;
+        objectNumber.secondDigit = Math.floor(number / 10) % 10;
+        objectNumber.thirdDigit = Math.floor(number / 100) % 10;
+    } else {
+        console.log('Введите число правильно [0,999]')
+    }
+    return console.log(objectNumber);
+}
+
+numberInObj(prompt('Введите чилсло в диапазоне [0,999]'))
+</script>
+</body>
+</html>
