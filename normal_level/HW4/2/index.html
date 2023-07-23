@@ -25,8 +25,8 @@
 const settings = {
     rowsCount: 11,
     colsCount: 11,
-    startPositionX: 5,
-    startPositionY: 5,
+    startPositionX: 10,
+    startPositionY: 10,
 };
 
 /**
@@ -54,34 +54,62 @@ const player = {
         // Определяем направление и обновляем местоположение игрока в зависимости от направления.
         switch (direction) {
             case 1:
-                this.x--
+                this.x++
                 this.y++
                 break;
             case 2:
                 this.y++;
                 break;
             case 3:
-                this.x++
+                this.x--
                 this.y++
                 break;
             case 4:
-                this.x--;
-                break;
-            case 6:
                 this.x++;
                 break;
+            case 6:
+                this.x--;
+                break;
             case 7:
-                this.x--
+                this.x++
                 this.y--
                 break;
             case 8:
                 this.y--;
                 break;
             case 9:
-                this.x++
+                this.x--
                 this.y--
                 break;
         }
+    },
+    /**
+     * Не дает пользователю ходить за границу поля
+     * @param direction - Направление движение по numpad
+     * @returns {boolean} - возвращает true если ход производиться не за границу поля, false если пользвоатель хочет походить за границу
+     */
+    checkPosition(direction) {
+        if (this.x == 0) {
+            if (direction == 3 || direction == 6 || direction == 9) {
+                return false;
+            }
+        };
+        if (this.x == settings.rowsCount-1) {
+            if (direction == 1 || direction == 4 || direction == 7) {
+                return false;
+            }
+        };
+        if (this.y == 0) {
+            if (direction == 7 || direction == 8 || direction == 9) {
+                return false;
+            }
+        };
+        if (this.y == settings.colsCount-1) {
+            if (direction == 1 || direction == 2 || direction == 3) {
+                return false;
+            }
+        };
+        return true;
     },
 };
 
@@ -113,9 +141,13 @@ const game = {
                 alert('До свидания.');
                 return;
             }
+            // Проверяем возможность движения
+            if (this.player.checkPosition(direction)) {
+                // Двигаем игрока.
+                this.player.move(direction);
+            }
+            continue;
 
-            // Двигаем игрока.
-            this.player.move(direction);
         }
     },
 
