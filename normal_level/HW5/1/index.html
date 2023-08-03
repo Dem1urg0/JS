@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    blackarea {
+        background-color: black;
+    }
+    td {
+        width: 50px;
+        height: 50px;
+        background-color: #d7d7d7;
+    }
+</style>
+<table class="game"></table>
+<script>'use strict'
+
+let options = {
+    rowcount: 8,
+    colcount: 8,
+};
+let game = {
+    options,
+    generation: function generetion() {
+
+        for (let i = 0; i < options.rowcount; i++) {
+            const trElm = document.createElement('tr')
+
+            for (let j = 0; j < options.colcount; j++) {
+                document.createElement('td');
+            }
+        }
+    },
+}
+
+</script>
+</body>
+</html>
