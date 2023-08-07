@@ -10,33 +10,230 @@
     blackarea {
         background-color: black;
     }
+
+    body {
+        margin: 0 auto;
+    }
+
+    p {
+        font-size: 45px;
+        margin: 0;
+    }
+
     td {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         background-color: #d7d7d7;
+        text-align: center;
     }
 </style>
-<table class="game"></table>
+<table id="game">
+</table>
 <script>'use strict'
 
+/*
+1. Создать функцию, генерирующую шахматную доску. При этом можно использовать любые html-теги по своему желанию.
+Доска должна быть разлинована соответствующим образом, т.е. чередовать черные и белые ячейки.
+Строки должны нумероваться числами от 1 до 8, столбцы – латинскими буквами A, B, C, D, E, F, G, H.
+
+2*. Заполнить созданную таблицу фигурами, фигуры должны выглядеть как картинки, либо можно использовать символы
+(существуют символы шахматных фигур) причем все фигуры должны стоять
+на своих местах и быть соответственно черными и белыми.
+*/
+
 let options = {
-    rowcount: 8,
-    colcount: 8,
+    rowcount: 10,
+    colcount: 10,
 };
+
 let game = {
     options,
+    tableElem: null,
+
+    run() {
+        this.init()
+    },
+
+    figur(name) {
+        const figurElement = document.createElement('p');
+
+        switch (name) {
+            case 'pawn': {
+                figurElement.textContent = '♙';
+                return figurElement;
+            }
+            case 'knight': {
+                figurElement.textContent = '♘';
+                return figurElement;
+            }
+            case 'bishops': {
+                figurElement.textContent = '♗';
+                return figurElement;
+            }
+            case 'rooks': {
+                figurElement.textContent = '♖';
+                return figurElement;
+            }
+            case 'queen': {
+                figurElement.textContent = '♕';
+                return figurElement;
+            }
+            case 'king': {
+                figurElement.textContent = '♔';
+                return figurElement;
+            }
+            case 'a': {
+                figurElement.textContent = 'a';
+                return figurElement;
+            }
+            case 'b': {
+                figurElement.textContent = 'b';
+                return figurElement;
+            }
+            case 'c': {
+                figurElement.textContent = 'c';
+                return figurElement;
+            }
+            case 'd': {
+                figurElement.textContent = 'd';
+                return figurElement;
+            }
+            case 'e': {
+                figurElement.textContent = 'e';
+                return figurElement;
+            }
+            case 'f': {
+                figurElement.textContent = 'f';
+                return figurElement;
+            }
+            case 'g': {
+                figurElement.textContent = 'g';
+                return figurElement;
+            }
+            case 'h': {
+                figurElement.textContent = 'h';
+                return figurElement;
+            }
+            case '1': {
+                figurElement.textContent = '1';
+                return figurElement;
+            }
+            case '2': {
+                figurElement.textContent = '2';
+                return figurElement;
+            }
+            case '3': {
+                figurElement.textContent = '3';
+                return figurElement;
+            }
+            case '4': {
+                figurElement.textContent = '4';
+                return figurElement;
+            }
+            case '5': {
+                figurElement.textContent = '5';
+                return figurElement;
+            }
+            case '6': {
+                figurElement.textContent = '6';
+                return figurElement;
+            }
+            case '7': {
+                figurElement.textContent = '7';
+                return figurElement;
+            }
+            case '8': {
+                figurElement.textContent = '8';
+                return figurElement;
+            }
+        }
+    },
+
+    cellsFiller(i, j) {
+        let figurElement = document.createElement('div')
+
+        if (i == 0 || i == 9) {
+            if (j == 1) {
+                figurElement = this.figur('a');
+            } else if (j == 2) {
+                figurElement = this.figur('b');
+            } else if (j == 3) {
+                figurElement = this.figur('c');
+            } else if (j == 4) {
+                figurElement = this.figur('d');
+            } else if (j == 5) {
+                figurElement = this.figur('e');
+            } else if (j == 6) {
+                figurElement = this.figur('f');
+            } else if (j == 7) {
+                figurElement = this.figur('g');
+            } else if (j == 8) {
+                figurElement = this.figur('h');
+            }
+        }
+        if (i == 1 || i == 8) {
+            if (j == 1 || j == 8) {
+                figurElement = this.figur('rooks');
+            } else if (j == 2 || j == 7) {
+                figurElement = this.figur('knight');
+            } else if (j == 3 || j == 6) {
+                figurElement = this.figur('bishops');
+            } else if (j == 4) {
+                figurElement = this.figur('queen');
+            } else if (j == 5) {
+                figurElement = this.figur('king');
+            }
+        }
+        if (i == 2 || i == 7) {
+            if (j !== 0 && j !== 9)
+                figurElement = this.figur('pawn');
+        }
+        if (j == 0 || j == 9) {
+            if (i == 1) {
+                figurElement = this.figur('8');
+            } else if (i == 2) {
+                figurElement = this.figur('7');
+            } else if (i == 3) {
+                figurElement = this.figur('6');
+            } else if (i == 4) {
+                figurElement = this.figur('5');
+            } else if (i == 5) {
+                figurElement = this.figur('4');
+            } else if (i == 6) {
+                figurElement = this.figur('3');
+            } else if (i == 7) {
+                figurElement = this.figur('2');
+            } else if (i == 8) {
+                figurElement = this.figur('1');
+            }
+        }
+        return figurElement;
+
+    },
+
+
+
+    init() {
+        this.tableElem = document.getElementById('game');
+        this.generation();
+    },
+
     generation: function generetion() {
-
-        for (let i = 0; i < options.rowcount; i++) {
-            const trElm = document.createElement('tr')
-
-            for (let j = 0; j < options.colcount; j++) {
-                document.createElement('td');
+        for (let i = 0; i < this.options.rowcount; i++) {
+            const rowElement = document.createElement('tr');
+            this.tableElem.appendChild(rowElement);
+            for (let j = 0; j < this.options.colcount; j++) {
+                const colElement = document.createElement('td');
+                let figurElement = this.cellsFiller(i, j)
+                colElement.appendChild(figurElement);
+                this.tdArrayFiller(i, j, colElement);
+                rowElement.appendChild(colElement);
             }
         }
     },
 }
-
+window.addEventListener('load', () => game.run());
+console.log(game.tdArray)
 </script>
 </body>
 </html>
