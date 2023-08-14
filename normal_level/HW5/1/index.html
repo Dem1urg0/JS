@@ -7,24 +7,33 @@
 </head>
 <body>
 <style>
-    blackarea {
-        background-color: black;
+
+    .black {
+        background-color: #646464;
+    }
+
+    .white {
+        color: white;
     }
 
     body {
-        margin: 0 auto;
+        margin: 0;
     }
 
     p {
         font-size: 45px;
         margin: 0;
     }
-
+    table{
+        border-collapse:collapse
+    }
     td {
-        width: 60px;
-        height: 60px;
-        background-color: #d7d7d7;
+        width: 66px;
+        height: 66px;
+        background-color: #cecece;
         text-align: center;
+        border: black solid 1px;
+        box-sizing: border-box;
     }
 </style>
 <table id="game">
@@ -210,8 +219,20 @@ let game = {
         return figurElement;
 
     },
-
-
+    cellColor(i, j) {
+        if (i > 0 && i < 9 && j > 0 && j < 9) {
+            if ((i + j) % 2 == 0) {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    },
+    whiteFigure(i, j) {
+        if (i > 6 && i < 9 && j > 0 && j < 9) {
+            return true;
+        } else return false
+    },
 
     init() {
         this.tableElem = document.getElementById('game');
@@ -224,16 +245,20 @@ let game = {
             this.tableElem.appendChild(rowElement);
             for (let j = 0; j < this.options.colcount; j++) {
                 const colElement = document.createElement('td');
-                let figurElement = this.cellsFiller(i, j)
+                if (this.cellColor(i, j)) {
+                    colElement.classList.add('black');
+                }
+                let figurElement = this.cellsFiller(i, j);
+                if (this.whiteFigure(i, j)) {
+                    figurElement.classList.add('white');
+                }
                 colElement.appendChild(figurElement);
-                this.tdArrayFiller(i, j, colElement);
                 rowElement.appendChild(colElement);
             }
         }
     },
 }
 window.addEventListener('load', () => game.run());
-console.log(game.tdArray)
 </script>
 </body>
 </html>
