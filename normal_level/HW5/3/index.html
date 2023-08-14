@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<style>
+    button {
+        width: 100px;
+        height: 25px;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: repeat(4, 200px);
+        grid-gap: 25px;
+    }
+    .name,.phone,.password,.password_2{
+        height: 150px;
+    }
+    .none {
+        display: none;
+    }
+</style>
+
+<form id="register">
+    <div class="name">
+        <p>Name:</p>
+        <input type="text" id="name">
+        <p class="none" id="nameP">Имя - должно содержать как минимум 1 символ, не более 50 символов.</p>
+    </div>
+    <div class="phone">
+        <p>Phone:</p>
+        <input type="text" id="phone">
+        <p class="none" id="phoneP">Телефон - должно содержать 11 цифр</p>
+    </div>
+    <div class="password">
+        <p>Password:</p>
+        <input type="password" id="pass">
+        <p class="none" id="passP">Пароль - минимум 5 символов, максимум 50.</p>
+    </div>
+    <div class="password_2">
+        <p>Double password:</p>
+        <input type="password" id="pass2">
+        <p class="none" id="pass2P">Повтор пароля - значение должно совпадать с полем пароль.</p>
+    </div>
+    <button id="button" type="button">LOGIN</button>
+</form>
+
+<body>
+
+<script>'use strict'
+/*
+3**. Создать форму в html со следующими полями:
+* Имя - текстовое поле
+* Телефон - текстовое поле
+* Пароль - поле типа password
+* Повтор пароля - поле типа password
+* Кнопка отправить форму
+
+Необходимо реализовать валидацию этой формы по следующим правилам:
+
+* Имя - должно содержать как минимум 1 символ, не более 50 символов.
+* Телефон - должно содержать 11 цифр, не больше, не меньше.
+* Пароль - минимум 5 символов, максимум 50.
+* Повтор пароля - значение должно совпадать с полем пароль.
+* Кнопка отправить форму - при нажатии на кнопку форма должна провериться, при прохождении проверки, форма
+отправляется, если проверка не была пройдена, то:
+- Каждое поле, которое не прошло проверку должно выделяться красным цветом.
+- Под каждым полем, что не прошло проверку, должна писаться подсказка по какой причине проверка провалилась.
+
+Можете пользоваться стилями бутстрапа, если лень самим писать.
+Пользоваться аттрибутами HTML5 запрещено, необходимо проверки реализовать с помощью javascript.
+ */
+
+let validator = {
+
+    nameElem: document.getElementById('name'),
+    phoneElem: document.getElementById('phone'),
+    passElem: document.getElementById('pass'),
+    pass2Elem: document.getElementById('pass2'),
+
+    nameValue: undefined,
+    phoneValue: undefined,
+    passValue: undefined,
+    pass2Value: undefined,
+    button: document.getElementById('button'),
+
+    /**
+     * Проверяет вводимое значение в поле name, красит поле в красные
+     * и выводит блок с подсказкой при не корректном вводе.
+     * @returns {boolean}
+     */
+    nameChecker() {
+        if (this.nameValue.length < 1 || this.nameValue.length > 50) {
+            this.nameElem.style.backgroundColor = 'red';
+            document.getElementById('nameP').classList.remove('none');
+            return false;
+        } else {
+            this.nameElem.style.backgroundColor = 'white';
+            document.getElementById('nameP').classList.add('none');
+            return true;
+        }
+    },
+    phoneChecker() {
+        if (this.phoneValue.length != 11 && isNaN(this.phone)) {
+            this.phoneElem.style.backgroundColor = 'red';
+            document.getElementById('phoneP').classList.remove('none');
+            return false;
+        } else {
+            this.phoneElem.style.backgroundColor = 'white';
+            document.getElementById('phoneP').classList.add('none');
+            return true;
+        }
+    },
+    passwordChecker() {
+        if (this.passValue.length < 5 || this.pass.length > 50) {
+            this.passElem.style.backgroundColor = 'red';
+            document.getElementById('passP').classList.remove('none');
+            return false;
+        } else {
+            this.passElem.style.backgroundColor = 'white';
+            document.getElementById('passP').classList.add('none');
+            return true;
+        }
+    },
+    passwordСompare() {
+        if (this.pass != this.pass2) {
+            alert('Повтор пароля - значение должно совпадать с полем пароль.')
+        }
+    },
+    run() {
+        this.nameChecker();
+        this.phoneChecker();
+        this.passwordChecker();
+        this.passwordСompare();
+    },
+
+}
+validator.button.addEventListener('click', function (event) {
+    validator.nameValue = validator.nameElem.value;
+    validator.phoneValue = validator.phoneElem.value;
+    validator.passValue = validator.passElem.value;
+    validator.pass2Value = validator.pass2Elem.value;
+    validator.run();
+})
+
+</script>
+</body>
+</html>

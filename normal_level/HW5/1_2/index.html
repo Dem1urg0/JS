@@ -58,11 +58,17 @@ let options = {
 let game = {
     options,
     tableElem: null,
-
+    /**
+     * Запускает игру
+     */
     run() {
         this.init()
     },
-
+    /**
+     * Возвращает символ для шахматный доски в взависимости от названия
+     * @param name - на вход приходит название символы\фигуры\цифра
+     * @returns {figurElement} - Возвращает фигуры\символ\цифру в виде HTML объекта
+     */
     figur(name) {
         const figurElement = document.createElement('p');
 
@@ -157,7 +163,12 @@ let game = {
             }
         }
     },
-
+    /**
+     * Определяет что стоит в данной клетке
+     * @param i столбец
+     * @param j строчка
+     * @returns {figurElement} название фигуры
+     */
     cellsFiller(i, j) {
         let figurElement = document.createElement('div')
 
@@ -219,6 +230,12 @@ let game = {
         return figurElement;
 
     },
+    /**
+     * Проверяет нужно ли красить поле в черный
+     * @param i - строка
+     * @param j - столбец
+     * @returns {boolean}
+     */
     cellColor(i, j) {
         if (i > 0 && i < 9 && j > 0 && j < 9) {
             if ((i + j) % 2 == 0) {
@@ -233,12 +250,16 @@ let game = {
             return true;
         } else return false
     },
-
+    /**
+     * Инициализация
+     */
     init() {
         this.tableElem = document.getElementById('game');
         this.generation();
     },
-
+    /**
+     * Строит шахматную доску
+     */
     generation: function generetion() {
         for (let i = 0; i < this.options.rowcount; i++) {
             const rowElement = document.createElement('tr');
