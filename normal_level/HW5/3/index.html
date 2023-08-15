@@ -16,9 +16,11 @@
         grid-template-columns: repeat(4, 200px);
         grid-gap: 25px;
     }
-    .name,.phone,.password,.password_2{
+
+    .name, .phone, .password, .password_2 {
         height: 150px;
     }
+
     .none {
         display: none;
     }
@@ -88,7 +90,7 @@ let validator = {
     button: document.getElementById('button'),
 
     /**
-     * Проверяет вводимое значение в поле name, красит поле в красные
+     * Проверяет вводимое значение в поле ***, красит поле в красные
      * и выводит блок с подсказкой при не корректном вводе.
      * @returns {boolean}
      */
@@ -115,7 +117,7 @@ let validator = {
         }
     },
     passwordChecker() {
-        if (this.passValue.length < 5 || this.pass.length > 50) {
+        if (this.passValue.length < 5 || this.passValue.length > 50) {
             this.passElem.style.backgroundColor = 'red';
             document.getElementById('passP').classList.remove('none');
             return false;
@@ -126,18 +128,33 @@ let validator = {
         }
     },
     passwordСompare() {
-        if (this.pass != this.pass2) {
-            alert('Повтор пароля - значение должно совпадать с полем пароль.')
+        if (this.passValue != this.pass2Value) {
+            this.pass2Elem.style.backgroundColor = 'red';
+            document.getElementById('pass2P').classList.remove('none');
+            return false;
+        } else {
+            this.pass2Elem.style.backgroundColor = 'white';
+            document.getElementById('pass2P').classList.add('none');
+            return true;
         }
     },
+    /**
+     * Запуск проверок введенных данных и вывод при корректности
+     */
     run() {
-        this.nameChecker();
-        this.phoneChecker();
-        this.passwordChecker();
-        this.passwordСompare();
+
+        if (this.nameChecker() && this.phoneChecker() && this.passwordChecker() && this.passwordСompare()){
+            console.log(this.nameValue, this.phoneValue, this.passValue)
+        } else {
+            console.log('Введите корректные данные')
+        }
+
     },
 
 }
+/**
+ * Передает данные в validator при клике и запускает run
+ */
 validator.button.addEventListener('click', function (event) {
     validator.nameValue = validator.nameElem.value;
     validator.phoneValue = validator.phoneElem.value;
