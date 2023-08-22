@@ -71,7 +71,9 @@ const gallery = {
         image.onerror = function () {
             image.src = 'images/404.png';
         };
+        this.getName(src);
         image.src = src;
+
     },
 
     /**
@@ -140,30 +142,40 @@ const gallery = {
     close() {
         document.querySelector(`.${this.settings.openedImageWrapperClass}`).remove();
     },
+
+    // Имя/Номер открываемой картинки
+    imgName: undefined,
+    /**
+     * Записывает номер (имя картинки) из пути к ней
+     * @param src - путь к картинке
+     */
+    getName(src) {
+        const filename = src.substring(src.lastIndexOf('/') + 1);
+        const name = parseInt(filename.split('.')[0]);
+        this.imgName = name;
+    },
     /**
      * Перелистывает картинку в лево и право
      */
     left() {
         const img = document.querySelector(`.${this.settings.openedImageWrapperClass}`)
             .querySelector(`.${this.settings.openedImageClass}`);
-        const src = img.src;
-        const filename = src.substring(src.lastIndexOf('/') + 1);
-        const name = parseInt(filename.split('.')[0]);
-        if (name == 1) {
-            img.src = `images/max/4.jpg`
-        } else
-            img.src = `images/max/${name - 1}.jpg`
+        if (this.imgName == 1){
+          this.imgName = 5;
+        }
+        let name = this.imgName;
+        this.imgName -= 1;
+        img.src = `images/max/${name - 1}.jpg`;
     },
     right() {
         const img = document.querySelector(`.${this.settings.openedImageWrapperClass}`)
             .querySelector(`.${this.settings.openedImageClass}`);
-        const src = img.src;
-        const filename = src.substring(src.lastIndexOf('/') + 1);
-        const name = parseInt(filename.split('.')[0]);
-        if (name == 4) {
-            img.src = `images/max/1.jpg`
-        } else
-            img.src = `images/max/${name + 1}.jpg`
+        if (this.imgName == 4){
+            this.imgName = 0;
+        }
+        let name = this.imgName;
+        this.imgName += 1;
+        img.src = `images/max/${name + 1}.jpg`;
     }
 };
 
