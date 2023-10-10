@@ -1,9 +1,18 @@
 /*
-1. Добавьте стили для верхнего меню, товара, списка товаров и кнопки вызова корзины.
+1. Добавьте стили для верхнего меню, товара, списка товаров и кнопки вызова корзины. +
 2. Добавьте значения по умолчанию для аргументов функции. Как можно упростить или
 сократить запись функций?
+
+Ответ: Убрал лишнее равенство у второй функции.
+Как было:
+const productList = list.map(item => renderProduct(item.title, item.price));
+document.querySelector('.products').innerHTML = productList;
+
 3. * Сейчас после каждого товара на странице выводится запятая. Из-за чего это происходит?
 Как это исправить?
+Ответ: .map создает массив, где элементы перечислены через запятую.
+Исправил с помощью .join("").
+
  */
 
 const products = [
@@ -13,8 +22,8 @@ const products = [
   {id: 4, title: 'Gamepad', price: 150},
 ];
 
-const renderProduct = (title, price) => {
-  return `<div class="product-item">
+const renderProduct = (title = 'Пусто', price = 150) => {
+  return `<div class="products_item">
             <h3>${title}</h3>
             <p>${price}</p>
             <button class="by-btn">Добавить</button>
@@ -22,8 +31,7 @@ const renderProduct = (title, price) => {
 };
 
 const renderProducts = list => {
-  const productList = list.map(item => renderProduct(item.title, item.price));
-  document.querySelector('.products').innerHTML = productList;
+  document.querySelector('.products').innerHTML = list.map(item => renderProduct(item.title, item.price)).join("");
 };
 
 renderProducts(products);

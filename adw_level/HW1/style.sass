@@ -22,14 +22,52 @@ header
   border: #8a8a8a 1px solid
   font-size: 15px
   text-transform: uppercase
-  color: #4d1200
+  color: #981d1d
   letter-spacing: 1px
+  background-color: #ff8fbb
+
+  &:hover
+    background-color: #dc7ca2
+
+  &:active
+    background-color: #b76888
 
 main
   background-color: #d2e3f8
 
-.product-item
-  h3
+.products
+  &_item
+    display: flex
+    width: 300px
+    justify-content: space-around
+    border: #a2b9fa 3px solid
+    box-sizing: border-box
+    margin-top: 20px
+
+    h3
+      color: #424242
+
+    p
+      color: #ff0000
+      margin-top: 22px
+      font-weight: bold
+
+    button
+      width: 85px
+      height: 35px
+      box-sizing: border-box
+      border: #424242 1px solid
+      color: darkorange
+      background-color: #a10005
+      margin-top: 11px
+      text-transform: uppercase
+      font-weight: bold
+
+      &:hover
+        background-color: #800005
+
+      &:active
+        background-color: #600004
 
 
 
