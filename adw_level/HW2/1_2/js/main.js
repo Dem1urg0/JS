@@ -1,10 +1,16 @@
+/*
+1. Добавьте пустые классы для Корзины товаров и Элемента корзины товаров. Продумайте,
+какие методы понадобятся для работы с этими сущностями.
+
+2. Добавьте для GoodsList метод, определяющий суммарную стоимость всех товаров.
+*/
 class GoodsList {
     constructor(container = '.goods') {
         this.container = container;
         this.goods = [];
-        this.allGoods = [];
         this._fetchGoods();
         this._render();
+        this._fullPrice();
     }
 
     _fetchGoods() {
@@ -21,9 +27,15 @@ class GoodsList {
 
         for (let good of this.goods) {
             const goodsObject = new GoodItem(good);
-            this.allGoods.push(goodsObject);
             block.insertAdjacentHTML('beforeend', goodsObject.render())
         }
+    }
+    _fullPrice(){
+        let price = 0;
+        for (let good of this.goods){
+            price += good.price;
+        }
+        console.log(price)
     }
 }
 
@@ -46,6 +58,14 @@ class GoodItem {
             </div>`;
     }
 }
+class Cart {
+    constructor() {
+        this.cartGoods = [];
+        this._addtoCart();
+    }
+    _addtoCart(){
 
+    }
+}
 const list = new GoodsList();
 
