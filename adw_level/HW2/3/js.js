@@ -17,42 +17,57 @@ c. С картофелем (+15 рублей, +10 калорий).
 */
 
 class Hamburger {
-    constructor(size = 'Не выбран', stuffing = 'Не выбрана') {
-        this.choosedSize = size;
-        this.choosedStuffing = stuffing;
-        this.choosedTopping = [];
+    constructor() {
+        this.choosedSize = '';
+        this.choosedStuffing = '';
+        this.choosedToppings = [];
         this.toppings = [];
         this.sizes = [];
         this.stuffings = [];
         this.price = 0;
+        this.calories = 0;
+        this.binar = true
 
-
-        this.addTopping(toppingName);
-        this.removeTopping(toppingName);
-        this.getToppings();
-        this.getSize();
-        this.getStuffing();
-        this.calculatePrice();
-        this.calculateCalories();
         this.loadMenuList();
         this.printMenuList();
-        this.changeSize();
-        this.changeStuffing();
+        this.buy();
+    }
+
+    buy() {
+        while (this.binar) {
+            this.changeSize()
+        }
+        this.binar = true
+        while (this.binar) {
+            this.changeStuffing()
+        }
+        this.binar = true
+        if (confirm('Хотите добавку?'))
+            while (this.binar) {
+                this.addTopping()
+            }
+        this.binar = true;
+        if (confirm('Хотите убрать добавку?')){
+            while (this.binar){
+                this.removeTopping()
+            }
+        }
+        console.log(this.calculateCalories(),this.calculatePrice())
     }
 
     loadMenuList() {
         this.toppings = [
-            {id:0 ,name: 'mayo', price: 20, cal: 5},
-            {id:1 ,name: 'seas', price: 15, cal: 0}
+            {id: 0, name: 'mayo', price: 20, cal: 5},
+            {id: 1, name: 'seas', price: 15, cal: 0}
         ]
         this.sizes = [
-            {id:0 ,name: 'small', price: 50, cal: 20},
-            {id:1 ,name: 'big', price: 100, cal: 40},
+            {id: 0, name: 'small', price: 50, cal: 20},
+            {id: 1, name: 'big', price: 100, cal: 40},
         ]
         this.stuffings = [
-            {id:0 ,name: 'cheesy', price: 10, cal: 20},
-            {id:1 ,name: 'salad', price: 20, cal: 5},
-            {id:2 ,name: 'potato', price: 15, cal: 10},
+            {id: 0, name: 'cheesy', price: 10, cal: 20},
+            {id: 1, name: 'salad', price: 20, cal: 5},
+            {id: 2, name: 'potato', price: 15, cal: 10},
         ]
     }
 
@@ -61,67 +76,102 @@ class Hamburger {
     }
 
 
-    addTopping(toppingName) {
+    addTopping() {
+        let newTopping = prompt('Введите добавку из меню')
         for (const topping of this.toppings) {
-            if (topping.name === toppingName) {
-                this.choosedTopping.push(topping);
-            } else {
-                console.log('Такой добавки нет в меню')
+            if (topping.name === newTopping) {
+                this.choosedToppings.push(topping.name);
+                if (confirm('Хотите еще добавку?')){
+                    this.addTopping();
+                } else
+                    this.binar = false;
             }
         }
     }
-
-    removeTopping(toppingName, count = 1) {
-        for (const topping of this.toppings) {
-            if (toppingName.name === toppingName) {
-                for (let i = 0; i <= count; i++) {
-                    this.toppings.slice(topping.id, 1);
-                }
+// хотелось бы починить многократный выход
+    removeTopping() {
+        let toppingName = prompt('Введите название добавки:')
+        for (const topping of this.choosedToppings) {
+            if (topping === toppingName) {
+                this.choosedToppings.slice(topping, 1);
+                if (confirm('Хотите убрать еще добавку?')){
+                    this.removeTopping();
+                } else
+                    return  this.binar = false;
             }
         }
         console.log('Такой добавки нет в выбранных')
-        return false;
+        if (confirm('Хотите выйти?')){
+            this.binar = false
+        }
     }
 
-    getToppings() {
-        console.log(this.choosedTopping);
-    }
+    changeSize() {
 
-    getSize() {
-        console.log(this.choosedSize);
-    }
-    changeSize(newSize){
-        for (const size of this.sizes){
-            if (newSize == size.name){
+        let newSize = prompt('Введите размер бургера из меню')
+        for (const size of this.sizes) {
+            if (newSize === size.name) {
                 this.choosedSize = newSize;
-                return true;
+                console.log('Размер выбран')
+                return this.binar = false;
             }
         }
         console.log('Такого размера нет')
-        return false;
     }
-    changeStuffing(stuffing){
-        this.choosedStuffing = stuffing;
-    }
-    getStuffing() {
-        console.log(this.choosedTopping);
+
+    changeStuffing(stuffing) {
+        let newStuff = prompt('Введите тип бургера из меню')
+        for (const stuff of this.stuffings) {
+            if (newStuff === stuff.name) {
+                this.choosedStuffing = newStuff;
+                console.log('Тип выбран')
+                return this.binar = false;
+            }
+        }
+        console.log('Такого типа нет')
     }
 
     calculatePrice() {
-        for (let size in this.sizes){
-            if this.choosedSize
+        for (let size in this.sizes) {
+            if (this.choosedSize === size.name) {
+                this.price += size.price;
+            }
         }
-
-
-
-        /*
-        this.choosedSize = size;
-        this.choosedStuffing = stuffing;
-        this.choosedTopping = [];
-        */
+        for (let stuff in this.stuffings) {
+            if (this.choosedStuffing === stuff.name) {
+                this.price += stuff.price;
+            }
+        }
+        for (let topping in this.toppings) {
+            for (let choosedTopping in this.choosedToppings) {
+                if (this.choosedToppings === topping.name) {
+                    this.price += topping.price;
+                }
+            }
+        }
+        return (this.price);
     }
 
     calculateCalories() {
+        for (let size in this.sizes) {
+            if (this.choosedSize === size.name) {
+                this.calories += size.cal;
+            }
+        }
+        for (let stuff in this.stuffings) {
+            if (this.choosedStuffing === stuff.name) {
+                this.calories += stuff.cal;
+            }
+        }
+        for (let topping in this.toppings) {
+            for (let choosedTopping in this.choosedToppings) {
+                if (this.choosedToppings === topping.name) {
+                    this.ories += topping.cal;
+                }
+            }
+        }
+        return (this.calories);
     }
 }
 
+const Burger = new Hamburger();
