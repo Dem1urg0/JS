@@ -34,6 +34,8 @@ class Hamburger {
     }
 
     buy() {
+        this.price = 0;
+        this.calories = 0;
         while (this.binar) {
             this.changeSize()
         }
@@ -52,7 +54,10 @@ class Hamburger {
                 this.removeTopping()
             }
         }
-        console.log(this.calculateCalories(),this.calculatePrice())
+        console.log(`Калорийность:${this.calculateCalories()}, Цена:${this.calculatePrice()}`)
+        if(confirm('Желаете изменить заказ?')){
+            this.buy();
+        }
     }
 
     loadMenuList() {
@@ -132,19 +137,19 @@ class Hamburger {
     }
 
     calculatePrice() {
-        for (let size in this.sizes) {
+        for (let size of this.sizes) {
             if (this.choosedSize === size.name) {
                 this.price += size.price;
             }
         }
-        for (let stuff in this.stuffings) {
+        for (let stuff of this.stuffings) {
             if (this.choosedStuffing === stuff.name) {
                 this.price += stuff.price;
             }
         }
-        for (let topping in this.toppings) {
-            for (let choosedTopping in this.choosedToppings) {
-                if (this.choosedToppings === topping.name) {
+        for (let topping of this.toppings) {
+            for (let choosedTopping of this.choosedToppings) {
+                if (choosedTopping === topping.name) {
                     this.price += topping.price;
                 }
             }
@@ -153,20 +158,20 @@ class Hamburger {
     }
 
     calculateCalories() {
-        for (let size in this.sizes) {
+        for (let size of this.sizes) {
             if (this.choosedSize === size.name) {
                 this.calories += size.cal;
             }
         }
-        for (let stuff in this.stuffings) {
+        for (let stuff of this.stuffings) {
             if (this.choosedStuffing === stuff.name) {
                 this.calories += stuff.cal;
             }
         }
-        for (let topping in this.toppings) {
-            for (let choosedTopping in this.choosedToppings) {
-                if (this.choosedToppings === topping.name) {
-                    this.ories += topping.cal;
+        for (let topping of this.toppings) {
+            for (let choosedTopping of this.choosedToppings) {
+                if (choosedTopping === topping.name) {
+                    this.calories += topping.cal;
                 }
             }
         }
