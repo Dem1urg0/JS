@@ -2,7 +2,7 @@
 
 /*
 1. Переделайте makeGETRequest() так, чтобы она использовала промисы.
-Убрал makegetrequest тк он не нужен
+Убрал makegetrequest через xml тк он не нужен, оставил только getproducts через fetch
 2. Добавьте в соответствующие классы методы добавления товара в корзину, удаления товара
 из корзины и получения списка товаров корзины.
 3. Переделайте GoodsList так, чтобы fetchGoods() возвращал промис, а render() вызывался в
@@ -10,8 +10,6 @@
 */
 
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses'
-
-//1 Задание переделать
 
 class ProductList {
     //3 Задание готово
@@ -43,13 +41,7 @@ class ProductList {
         }
     }
 
-    _fullPrice() {
-        let price = 0;
-        for (let good of this.goods) {
-            price += good.price;
-        }
-        console.log(price)
-    }
+
 }
 
 class ProductItem {
@@ -58,6 +50,7 @@ class ProductItem {
         this.price = product.price;
         this.id = product.id;
         this.img = img;
+        this.product = product
     }
 
     render() {
@@ -71,22 +64,50 @@ class ProductItem {
                 </div>
             </div>`;
     }
-
-    //_addtoCart() {
-
-   // }
+    _addtoCart(product) {
+        cart.cartGoods.push(product)
+    }
 }
 
 //2 Задание
 class Cart {
     constructor() {
+        this.cartButton = document.querySelector('.btn-cart')
         this.cartGoods = [];
+        this._clickCart()
+
     }
+    _clickCart(){
+        const cartDrop = document.querySelector('.drop__cart')
+        this.cartButton.onclick = () => {
+            cartDrop.classList.toggle('display__none');
+        }
+    }
+    _deleteItem(product) {
+        /*
+        Нужно определить на какой элемент нажали и удалить соотв
+         */
+        for (let i = 0; i <= this.cartGoods.length; i++){
+            if (this.cartGoods[i] == product){
+                this.cartButton.slice(i,1);
+            }
+        }
 
-    _deleteItem() {
-
+    }
+    _Price() {
+        let price = 0;
+        for (let good of this.cartButton) {
+            price += good.price;
+        }
+        console.log(price)
+    }
+    _render(){
+        /*
+        Рендерит карзину взависимости от добавленных товаров
+         */
     }
 }
 
 const list = new ProductList();
 
+const cart = new Cart()
