@@ -1,0 +1,39 @@
+body {
+  margin-top: 100px;
+  width: 400px;
+}
+
+.form {
+  display: flex;
+  height: 90px;
+}
+.form .name, .form .phone, .form .email {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 15px;
+}
+.form .name input, .form .phone input, .form .email input {
+  height: 20px;
+  margin-top: 10px;
+}
+.form .name h3, .form .phone h3, .form .email h3 {
+  margin-right: 15px;
+}
+
+button {
+  width: 190px;
+  height: 25px;
+  margin-top: 150px;
+  margin-left: 25px;
+}
+
+.uncorrect {
+  margin-top: 10px;
+  color: red;
+}
+
+.vanish {
+  display: none;
+}
+
+/*# sourceMappingURL=style.css.map */
