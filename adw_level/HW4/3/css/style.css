@@ -36,4 +36,8 @@ button {
   display: none;
 }
 
+.red {
+  outline: red solid;
+}
+
 /*# sourceMappingURL=style.css.map */
