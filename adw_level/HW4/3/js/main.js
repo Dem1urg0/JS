@@ -12,9 +12,9 @@ e. Если одно из полей не прошло валидацию, не�
 
 
 
-let regName = /[a-z]+/i
-let regPhone = /\+7[0-9]{10}/
-let regEmail = /\w*-?.?-?\w*@mail\.ru/
+let regName = /^[A-Za-z]+$/
+let regPhone = /^\+7[0-9]{10}$/
+let regEmail = /^\w*-?.?-?\w*@mail\.ru$/
 
 function valid() {
     const name = document.getElementById('name').value
