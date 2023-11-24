@@ -17,7 +17,24 @@
                     <i class="fas fa-search"></i>
                 </button>
             </form>
-            <button class="btn-cart" type="button">Корзина</button>
+                <button class="btn-cart" type="button" @click="openCart()">Корзина</button>
+            <div class="cart_hidden hidden" id="cart" >
+                <img id="404" class="img404" src="img/404.webp" alt="404">
+                <div class="cart-item" v-for="productCart of cartList" :key="cartList.indexOf(productCart)">
+                    <div class="product-bio">
+                        <img src="#" alt="Some image">
+                        <div class="product-desc">
+                            <p class="product-title">{{productCart.product_name}}</p>
+                            <p class="product-quantity">Quantity:{{productCart.quantity}}</p>
+                            <p class="product-single-price">{{productCart.price}} each</p>
+                        </div>
+                    </div>
+                    <div class="right-block">
+                        <p class="product-price">{{productCart.quantity*productCart.price}}</p>
+                        <button class="del-btn" @click="deleteFromCart(productCart), isCartEmpty()">&times;</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
     <main>
@@ -27,13 +44,15 @@
                 <div class="desc">
                     <h3>{{product.product_name}}</h3>
                     <p>{{product.price}} $</p>
-                    <button class="buy-btn" @click="addProduct(product)">Купить</button>
+                    <button class="buy-btn" @click="addProduct(product), isCartEmpty()">Купить</button>
                 </div>
             </div>
         </div>
     </main>
 </div>
-<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+        crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/main.js"></script>
 </body>
