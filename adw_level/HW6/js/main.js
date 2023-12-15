@@ -10,6 +10,7 @@ const app = new Vue({
     el: '#app',
     data: {
         userSearch: '',
+        loadError:'',
     },
     methods: {
         getJson(url){
@@ -17,6 +18,7 @@ const app = new Vue({
                 .then(result => result.json())
                 .catch(error => {
                     console.log(error);
+                    this.loadError = error.stack;
                 })
         },
     },
