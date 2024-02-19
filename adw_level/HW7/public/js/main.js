@@ -1,5 +1,10 @@
-const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
-
+/*
+1. Привязать добавление товара в корзину к реальному API.
+2. Добавить API для удаления товара из корзины.
+3. * Добавить файл stats.json, в котором будет храниться статистика действий пользователя с
+корзиной. В файле должны быть поля с названием действия (добавлено/удалено),
+названием товара, с которым производилось действие и временем, когда оно было совершено.
+*/
 const app = new Vue({
     el: '#app',
     data: {
@@ -10,6 +15,7 @@ const app = new Vue({
             return fetch(url)
                 .then(result => result.json())
                 .catch(error => {
+                    // console.log(error);
                     this.$refs.error.setError(error);
                 })
         },
@@ -21,9 +27,9 @@ const app = new Vue({
                 },
                 body: JSON.stringify(data)
             }).then(result => result.json())
-              .catch(error => {
-                  this.$refs.error.setError(error);
-              });
+                .catch(error => {
+                    this.$refs.error.setError(error);
+                });
         },
         putJson(url, data) {
             return fetch(url, {
@@ -33,25 +39,21 @@ const app = new Vue({
                 },
                 body: JSON.stringify(data)
             }).then(result => result.json())
-              .catch(error => {
-                  this.$refs.error.setError(error);
-              });
+                .catch(error => {
+                    this.$refs.error.setError(error);
+                });
         },
-        deleteJson(url, data) {
+        deleteJson(url) {
             return fetch(url, {
                 method: 'DELETE',
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(data)
             }).then(result => result.json())
-              .catch(error => {
-                  this.$refs.error.setError(error);
-              });
+                .catch(error => {
+                    this.$refs.error.setError(error);
+                });
         },
     },
-    mounted() {
-        console.log(this);
-    }
 });
 

@@ -8,13 +8,15 @@ const change = (cart, req) => {
     return JSON.stringify(cart, null, 4);
 };
 
+/**
+ * Добавили новый метод удаления
+ * @param cart
+ * @param req
+ * @returns {{newCart: *, name: *}}
+ */
 const remove = (cart, req) => {
     const find = cart.contents.find(el => el.id_product === +req.params.id);
-    if (find.quantity > 1) {
-        find.quantity--;
-    } else {
-        cart.contents.splice(cart.contents.indexOf(find), 1);
-    }
+    cart.contents.splice(cart.contents.indexOf(find), 1);
     return JSON.stringify(cart, null, 4);
 };
 
