@@ -1,0 +1,19 @@
+{
+    "contents": [
+        {
+            "prod_name": "Ноутбук",
+            "action": "remove",
+            "time": "February 21st 2024, 3:08:42 pm"
+        },
+        {
+            "prod_name": "Ноутбук",
+            "action": "add",
+            "time": "February 21st 2024, 3:08:44 pm"
+        },
+        {
+            "prod_name": "Мышка",
+            "action": "change",
+            "time": "February 21st 2024, 3:08:46 pm"
+        }
+    ]
+}
