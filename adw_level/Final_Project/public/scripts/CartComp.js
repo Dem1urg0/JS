@@ -45,26 +45,25 @@ Vue.component('cart', {
     //     },
     },
     mounted(){
-        fetch('../server/db/cart.json')
-            .then(result => result.json()).then(data => {
-            for (let el of data.products) {
-                this.cartItems.push(el);
+        this.$parent.getJson(`/cart`)
+            .then(data => {
+                for (let el of data.products) {
+                    this.cartItems.push(el);
                 }
-        }).catch(error => console.log(error));
-        console.log(this.cartItems);
-    },
+            });
+        },
     template: `
       <div class="cart_menu">
         <img class="cart" src="html/img/cart.svg" alt="cart" @click="showCart= !showCart">
         <div class="drop drop__cart" v-if="showCart">
           <div class="drop__browse__flex">
             <ul class="drop__menu">
-              <cart-item  v-for="item of cartItems" :cartItem="item" ref="cart-item"></cart-item>
+              <cart-item v-for="item of cartItems" :cartItem="item" ref="cart-item"></cart-item>
             </ul>
           </div>
           <div class="drop__cart__price">
             <h3>Total</h3>
-            <h3>{{totalPrice}}</h3>
+            <h3>{{ totalPrice }}</h3>
           </div>
           <a href="Checkout.html">
             <button class="drop__cart__button1">Checkout</button>

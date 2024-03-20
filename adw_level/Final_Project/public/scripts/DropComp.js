@@ -20,7 +20,7 @@ Vue.component('drop-filter',{
               <a href="#" class="drop__link">{{ item }}</a></li>
           </ul>
         </div>
-        <img style="width: 236px" v-if="filteredWoman.length === 0" src="img/no_product_found.png" alt="no_product_img">
+        <img style="width: 236px" v-if="filteredWoman.length === 0" src="html/img/no_product_found.png" alt="no_product_img">
       </div>
     `
 })

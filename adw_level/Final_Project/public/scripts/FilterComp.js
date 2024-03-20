@@ -27,21 +27,22 @@ Vue.component('filter-el', {
         },
     },
     mounted() {
-        //TODO в будущем заменить на образение к серверу через main.js
-        fetch('../server/db/clothing-types.json')
-            .then(result => result.json()).then(data => {
-            for (let el of data) {
-                if (el.gender === 'Woman') {
-                    this.products.woman = el.clothes;
-                    this.filtered.woman = el.clothes;
-                } else {
-                    this.products.man = el.clothes;
-                    this.filtered.man = el.clothes;
+        this.$parent.getJson('/api/products')
+            .then(data => {
+                for (let el of data) {
+                    if (el.gender === 'Woman') {
+                        this.products.woman = el.clothes;
+                        this.filtered.woman = el.clothes;
+                    } else {
+                        this.products.man = el.clothes;
+                        this.filtered.man = el.clothes;
 
+                    }
                 }
-            }
-        }).catch(error => console.log(error))
-
+                console.log(this.products);
+            }).catch(error => {
+            console.log(error);
+        });
     },
     template: `
       <form action="#" class="form">
