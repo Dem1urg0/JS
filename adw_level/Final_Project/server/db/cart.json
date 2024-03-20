@@ -1,0 +1,12 @@
+{
+  "full_price": 0,
+  "products": [
+    {
+      "id": 121,
+      "name": "Socks",
+      "price": 100,
+      "gender": "unisex",
+      "count": 1
+    }
+  ]
+}

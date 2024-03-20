@@ -1,0 +1,25 @@
+[
+  {
+    "gender": "Woman",
+    "clothes": [
+      "Dresses",
+      "Tops",
+      "Sweaters/Knits",
+      "Jackets/Coats",
+      "Blazers",
+      "Denim",
+      "Leggings/Pants",
+      "Skirts/Shorts",
+      "Accessories"
+    ]
+  },
+  {
+    "gender": "Man",
+    "clothes": [
+      "Dresses",
+      "Tops",
+      "Sweaters/Knits",
+      "Jackets/Coats"
+    ]
+  }
+]

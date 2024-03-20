@@ -1,0 +1,38 @@
+[
+  {
+    "id": 421,
+    "name": "T-short",
+    "price": 500,
+    "gender": "unisex"
+  },
+  {
+    "id": 121,
+    "name": "Socks",
+    "price": 100,
+    "gender": "unisex"
+  },
+  {
+    "id": 265,
+    "name": "Dress",
+    "price": 700,
+    "gender": "woman"
+  },
+  {
+    "id": 509,
+    "name": "Boots",
+    "price": 1200,
+    "gender": "woman"
+  },
+  {
+    "id": 875,
+    "name": "Skirt",
+    "price": 950,
+    "gender": "woman"
+  },
+  {
+    "id": 724,
+    "name": "Jeans",
+    "price": 900,
+    "gender": "man"
+  }
+]
