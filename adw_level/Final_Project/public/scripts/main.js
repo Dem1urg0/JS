@@ -6,7 +6,7 @@ const app = new Vue({
             return fetch(url)
                 .then(result => result.json())
                 .catch(error => {
-                    this.$refs.error.setError(error);
+                    console.log(error)
                 })
         },
         postJson(url, data) {
@@ -18,7 +18,7 @@ const app = new Vue({
                 body: JSON.stringify(data)
             }).then(result => result.json())
                 .catch(error => {
-                    this.$refs.error.setError(error);
+                    console.log(error)
                 });
         },
         putJson(url, data) {
@@ -30,7 +30,7 @@ const app = new Vue({
                 body: JSON.stringify(data)
             }).then(result => result.json())
                 .catch(error => {
-                    this.$refs.error.setError(error);
+                    console.log(error)
                 });
         },
         deleteJson(url) {
@@ -41,7 +41,7 @@ const app = new Vue({
                 },
             }).then(result => result.json())
                 .catch(error => {
-                    this.$refs.error.setError(error);
+                    console.log(error)
                 });
         },
     },

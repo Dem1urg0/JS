@@ -6,7 +6,7 @@
       "name": "Socks",
       "price": 100,
       "gender": "unisex",
-      "count": 1
+      "quantity": 1
     }
   ]
 }

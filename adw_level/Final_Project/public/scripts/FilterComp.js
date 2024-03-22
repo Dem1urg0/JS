@@ -27,7 +27,7 @@ Vue.component('filter-el', {
         },
     },
     mounted() {
-        this.$parent.getJson('/api/products')
+        this.$parent.getJson('/api/clothing-types')
             .then(data => {
                 for (let el of data) {
                     if (el.gender === 'Woman') {
@@ -36,10 +36,8 @@ Vue.component('filter-el', {
                     } else {
                         this.products.man = el.clothes;
                         this.filtered.man = el.clothes;
-
                     }
                 }
-                console.log(this.products);
             }).catch(error => {
             console.log(error);
         });
