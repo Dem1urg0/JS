@@ -112,6 +112,28 @@ body
   top: 50px
   z-index: 1
 
+  &_acc
+    position: absolute
+    z-index: 1
+    left: 0
+    right: auto
+    background-color: #ffffff
+    border: 1px solid #ececec
+    width: 130px
+    box-sizing: border-box
+    border-top: none
+
+    li
+      list-style-type: none
+
+    a
+      text-decoration: none
+      color: $color-pink
+
+    &:before
+      right: 450px
+      left: auto !important
+
   &_middle
     left: -330px
     right: auto
@@ -200,11 +222,12 @@ body
     text-align: left
     z-index: 3
     padding: 10px !important
+    padding-top: 0 !important
     top: 35px
     display: block
 
     &__button1, &__button2
-      width: 225px
+      width: 235px
       height: 50px
       background-color: #ffffff
       font-size: 14px
@@ -252,6 +275,12 @@ body
     &__items
       display: flex
       justify-content: space-between
+      padding-bottom: 10px
+      border-bottom: #e2e2e2 1px solid
+      margin-top: 13px
+      box-sizing: border-box
+      &:first-child
+        margin-top: 10px
 
       &__info
         display: flex
@@ -393,8 +422,10 @@ body
   font-size: 14px
   font-weight: 500
 
-.Account li
-  color: #222224
+.Account
+  position: relative
+  li
+    color: #222224
 
 .form__browse summary::-webkit-details-marker, .button summary::-webkit-details-marker
   display: none
@@ -441,6 +472,7 @@ details[open] > summary::after
   color: #fff
   text-decoration: none
   line-height: 250%
+  border: none
 
 .header__right img[alt="arrow-white"]
   margin-bottom: 4px
@@ -537,6 +569,7 @@ details[open] > summary::after
 
 img[alt="stars"]
   display: none
+  height: 16px
 
 .browse__all
   width: 212px
@@ -1507,10 +1540,13 @@ img[alt="prod_item1"], img[alt="prod_item2"], img[alt="prod_item3"]
           input
             &:nth-of-type(n+2)
               margin-left: 13px
+
             &:nth-of-type(3), &:nth-of-type(7), &:nth-of-type(6)
               margin-left: 31px
+
             &:nth-of-type(4)
               margin-left: 33px
+
             &:nth-of-type(5)
               margin-left: 0
 
@@ -1520,6 +1556,7 @@ img[alt="prod_item1"], img[alt="prod_item2"], img[alt="prod_item3"]
 
         &__price
           margin-left: 57px
+
           h2
             font-size: 14px
             color: #6f6e6e
@@ -1528,11 +1565,14 @@ img[alt="prod_item1"], img[alt="prod_item2"], img[alt="prod_item3"]
           p
             font-size: 14px
             color: #6f6e6e
+
           input
             margin-top: 18px
+
           &__numbers
             display: flex
             justify-content: space-between
+
       &__sort
         width: 846px
         height: 50px
@@ -1575,13 +1615,17 @@ img[alt="prod_item1"], img[alt="prod_item2"], img[alt="prod_item3"]
       margin-top: 48px
       display: flex
       flex-wrap: wrap
+
       &__item
         margin-left: 30px
         margin-bottom: 36px
+
         &:nth-of-type(4)
           margin-left: 0
+
         &:nth-of-type(5)
           margin-left: 30px
+
     &__footer
       display: flex
       justify-content: space-between

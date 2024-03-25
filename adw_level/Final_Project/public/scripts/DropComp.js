@@ -73,3 +73,21 @@ Vue.component('drop-def',{
                 </div>
     `
 })
+Vue.component('account',{
+    data(){
+        return {
+            show: false,
+        }
+
+    },
+    template: `
+      <button @click="show = !show" class="button Account">
+        My Account
+            <div class="drop_acc" v-if="show">
+              <li><a href="#">LOG-IN</a></li>
+              <li><a href="#">REGISTER</a></li>
+            </div>
+      </button>
+
+    `
+})

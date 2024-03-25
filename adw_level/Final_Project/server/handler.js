@@ -12,6 +12,7 @@ const handler = (req, res, action, file) => {
             res.send({result: 404, text: err});
         } else {
             let newCart = actions[action](JSON.parse(data), req);
+            console.log(newCart);
             fs.writeFile(file, newCart, (err) => {
                 if (err) {
                     res.send({result: 404, text: err});

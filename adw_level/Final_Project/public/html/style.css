@@ -120,6 +120,28 @@ body {
   top: 50px;
   z-index: 1;
 }
+.drop_acc {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: auto;
+  background-color: #ffffff;
+  border: 1px solid #ececec;
+  width: 130px;
+  box-sizing: border-box;
+  border-top: none;
+}
+.drop_acc li {
+  list-style-type: none;
+}
+.drop_acc a {
+  text-decoration: none;
+  color: #f16d7f;
+}
+.drop_acc:before {
+  right: 450px;
+  left: auto !important;
+}
 .drop_middle {
   left: -330px;
   right: auto;
@@ -208,11 +230,12 @@ body {
   text-align: left;
   z-index: 3;
   padding: 10px !important;
+  padding-top: 0 !important;
   top: 35px;
   display: block;
 }
 .drop__cart__button1, .drop__cart__button2 {
-  width: 225px;
+  width: 235px;
   height: 50px;
   background-color: #ffffff;
   font-size: 14px;
@@ -260,6 +283,13 @@ body {
 .drop__cart__items {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: #e2e2e2 1px solid;
+  margin-top: 13px;
+  box-sizing: border-box;
+}
+.drop__cart__items:first-child {
+  margin-top: 10px;
 }
 .drop__cart__items__info {
   display: flex;
@@ -413,6 +443,9 @@ body {
   font-weight: 500;
 }
 
+.Account {
+  position: relative;
+}
 .Account li {
   color: #222224;
 }
@@ -466,6 +499,7 @@ details[open] > summary::after {
   color: #fff;
   text-decoration: none;
   line-height: 250%;
+  border: none;
 }
 
 .header__right img[alt=arrow-white] {
@@ -566,6 +600,7 @@ details[open] > summary::after {
 
 img[alt=stars] {
   display: none;
+  height: 16px;
 }
 
 .browse__all {
