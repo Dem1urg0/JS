@@ -257,6 +257,7 @@ body {
 .drop__cart__price {
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 }
 .drop__cart__price h3 {
   font-size: 16px;
@@ -574,6 +575,7 @@ details[open] > summary::after {
   position: absolute;
   top: 98px;
   left: 70px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .fetured__list__product__add:hover {
   box-shadow: 0 0 5px #ffffff;

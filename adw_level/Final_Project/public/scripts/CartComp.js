@@ -10,21 +10,22 @@ Vue.component('cart', {
         addProduct(product) {
             const find = this.cartItems.find(el => el.id === product.id);
             if (find) {
+                find.quantity++;
                 this.$parent.putJson(`/api/cart/${find.id}`, {quantity: 1})
-                    .then(data => {
-                        if (data.result === 1) {
-                            find.quantity++;
-                        }
+                    .catch(error => {
+                        console.error('Error:', error);
+                        find.quantity--;
                     });
             } else {
                 const prod = Object.assign({quantity: 1}, product);
+                this.cartItems.push(prod);
                 this.$parent.postJson('/api/cart', prod)
-                    .then(data => {
-                        if (data.result === 1) {
-                            this.cartItems.push(prod);
-                        }
+                    .catch(error => {
+                        console.error('Error:', error);
+                        this.cartItems.slice(this.cartItems.indexOf(prod), 1);
                     });
             }
+            this.total()
         },
         remove(item) {
             if (item.quantity > 1) {
@@ -43,7 +44,11 @@ Vue.component('cart', {
                         this.cartItems.splice(index, 0, item);
                     });
             }
+            this.total()
         },
+        total() {
+            this.totalPrice = this.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+        }
     },
     mounted() {
         this.$parent.getJson(`/api/cart`)
@@ -64,7 +69,8 @@ Vue.component('cart', {
         <div class="drop drop__cart" v-if="showCart">
           <div class="drop__browse__flex">
             <ul class="drop__menu">
-              <cart-item v-for="item of cartItems" :cart-item="item" :key="item.id" ref="cart-item" @remove="remove"></cart-item>
+              <cart-item v-for="item of cartItems" :cart-item="item" :key="item.id" ref="cart-item"
+                         @remove="remove"></cart-item>
             </ul>
           </div>
           <div class="drop__cart__price">

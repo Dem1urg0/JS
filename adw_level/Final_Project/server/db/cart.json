@@ -2,32 +2,12 @@
     "full_price": 0,
     "products": [
         {
-            "id": 421,
-            "name": "T-short",
-            "price": 500,
-            "gender": "unisex",
-            "quantity": 5
-        },
-        {
-            "id": 121,
-            "name": "Socks",
-            "price": 100,
-            "gender": "unisex",
-            "quantity": 3
-        },
-        {
-            "id": 265,
-            "name": "Dress",
-            "price": 700,
+            "quantity": 1,
+            "id": 509,
+            "name": "Boots",
+            "price": 1200,
             "gender": "woman",
-            "quantity": 6
-        },
-        {
-            "id": 724,
-            "name": "Jeans",
-            "price": 900,
-            "gender": "man",
-            "quantity": 8
+            "img": "html/img/item-4.jpg"
         }
     ]
 }
