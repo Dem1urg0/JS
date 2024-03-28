@@ -51,7 +51,7 @@ Vue.component('filter-el', {
         </button>
         <input type="text" v-model="userSearch">
         <button @click="filtration(userSearch)" class="form__search"><img
-            src="html/img/search.svg" alt="search" width="18px" height="18px"></button>
+            src="style/img/search.svg" alt="search" width="18px" height="18px"></button>
       </form>
     `
 });

@@ -4,55 +4,55 @@
     "name": "Mango People T-shirt",
     "price": 52,
     "gender": "unisex",
-    "img": "html/img/item-1.jpg"
+    "img": "style/img/item-1.jpg"
   },
   {
     "id": 121,
     "name": "Socks",
     "price": 100,
     "gender": "unisex",
-    "img": "html/img/item-2.jpg"
+    "img": "style/img/item-2.jpg"
   },
   {
     "id": 265,
     "name": "Dress",
     "price": 700,
     "gender": "woman",
-    "img": "html/img/item-3.jpg"
+    "img": "style/img/item-3.jpg"
   },
   {
     "id": 509,
     "name": "Boots",
     "price": 1200,
     "gender": "woman",
-    "img": "html/img/item-4.jpg"
+    "img": "style/img/item-4.jpg"
   },
   {
     "id": 875,
     "name": "Skirt",
     "price": 950,
     "gender": "woman",
-    "img": "html/img/item-5.jpg"
+    "img": "style/img/item-5.jpg"
   },
   {
     "id": 634,
     "name": "Jeans",
     "price": 900,
     "gender": "man",
-    "img": "html/img/item-6.jpg"
+    "img": "style/img/item-6.jpg"
   },
   {
     "id": 722,
     "name": "Jeans",
     "price": 900,
     "gender": "man",
-    "img": "html/img/item-7.jpg"
+    "img": "style/img/item-7.jpg"
   },
   {
     "id": 907,
     "name": "Jeans",
     "price": 900,
     "gender": "man",
-    "img": "html/img/item-8.jpg"
+    "img": "style/img/item-8.jpg"
   }
 ]

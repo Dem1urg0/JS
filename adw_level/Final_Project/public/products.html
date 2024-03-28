@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Checkout</title>
+    <title>Products</title>
     <script src="https://kit.fontawesome.com/6583254041.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 <header class="header">
     <div class="container header__content">
         <div class="header__left">
-            <a href="../index.html" class="logo">
-                <img class="logo__img" src="img/logo.png" alt="logo"> <span class="logo__bran">BRAN</span><span
+            <a href="index.html" class="logo">
+                <img class="logo__img" src="style/img/logo.png" alt="logo"> <span class="logo__bran">BRAN</span><span
                     class="logo__bran-d">D</span>
             </a>
             <form action="#" class="form">
@@ -47,39 +47,39 @@
                     </div>
                 </button>
                 <input type="text">
-                <button class="form__search"><img src="img/search.svg" alt="search" width="18px" height="18px"></button>
+                <button class="form__search"><img src="style/img/search.svg" alt="search" width="18px" height="18px"></button>
             </form>
         </div>
         <div class="header__right">
             <div class="cart_menu">
-                <a href="Shopping%20Cart.html"><img class="cart" src="img/cart.svg" alt="cart"></a>
+                <a href="style/Shopping%20Cart.html"><img class="cart" src="style/img/cart.svg" alt="cart"></a>
                 <div class="drop drop__cart">
                     <div class="drop__browse__flex">
                         <ul class="drop__menu">
                             <li class="drop__cart__items">
                                 <div class="drop__cart__items__info">
-                                    <a href="product.html"><img src="img/cart__item1.jpg" alt="item"></a>
+                                    <a href="product.html"><img src="style/img/cart__item1.jpg" alt="item"></a>
                                     <div class="drop__cart__items__info__text">
                                         <a href="product.html"><h3>Rebox Zane</h3></a>
-                                        <a href="product.html"><img src="img/star.png" alt="stars_cart"></a>
+                                        <a href="product.html"><img src="style/img/star.png" alt="stars_cart"></a>
                                         <a href="#"><p>1 x $250</p></a>
                                     </div>
                                 </div>
-                                <a href="#"><img class="close" src="img/close.png" alt="close"></a>
+                                <a href="#"><img class="close" src="style/img/close.png" alt="close"></a>
                             </li>
                             <br>
                             <li class="cart__line"></li>
                             <br>
                             <li class="drop__cart__items">
                                 <div class="drop__cart__items__info">
-                                    <a href="product.html"><img src="img/cart__item2.jpg" alt="item"></a>
+                                    <a href="product.html"><img src="style/img/cart__item2.jpg" alt="item"></a>
                                     <div class="drop__cart__items__info__text">
                                         <a href="product.html"><h3>Rebox Zane</h3></a>
-                                        <a href="product.html"><img src="img/star.png" alt="stars_cart"></a>
+                                        <a href="product.html"><img src="style/img/star.png" alt="stars_cart"></a>
                                         <a href="#"><p>1 x $250</p></a>
                                     </div>
                                 </div>
-                                <a href="#"><img class="close" src="img/close.png" alt="close"></a>
+                                <a href="#"><img class="close" src="style/img/close.png" alt="close"></a>
                             </li>
                             <br>
                             <li class="cart__line"></li>
@@ -90,8 +90,12 @@
                         <h3>Total</h3>
                         <h3>$500.00</h3>
                     </div>
-                    <a href="Checkout.html"><button class="drop__cart__button1" >Checkout</button></a>
-                    <a href="Shopping%20Cart.html"><button class="drop__cart__button2" >Go to cart</button></a>
+                    <a href="Checkout.html">
+                        <button class="drop__cart__button1">Checkout</button>
+                    </a>
+                    <a href="style/Shopping%20Cart.html">
+                        <button class="drop__cart__button2">Go to cart</button>
+                    </a>
                 </div>
             </div>
             <details class="button Account">
@@ -108,7 +112,7 @@
 <nav>
     <div class="container">
         <ul class="menu">
-            <li class="menu__list"><a href="../index.html" class="menu__link">Home</a></li>
+            <li class="menu__list"><a href="index.html" class="menu__link">Home</a></li>
             <li class="menu__list"><a href="" class="menu__link">Man</a>
                 <div class="drop drop_middle">
                     <div class="drop__flex">
@@ -402,276 +406,216 @@
         </div>
     </nav>
 </div>
-<section class="arrivals__info container">
-    <div class="order_info adress">
-        <div class="a01"><h2>01. Shipping Adress</h2></div>
-        <div class="adress_content">
-            <div class="register">
-                <h3>Check as a guest or register</h3>
-                <p>Register with us for future convenience</p>
-                <form>
-                    <div class="check">
-                        <input class="checkout_input" type="radio" name="reg">
-                        <span class="input_text">checkout as guest</span>
-                    </div>
-                    <div class="reg">
-                        <input class="checkout_input" type="radio" name="reg">
-                        <span class="input_text">register</span>
-                    </div>
-                    <h3>register and save time!</h3>
-                    <p class="reg_text_reg">Register with us for future convenience</p>
-                    <div class="reg_text">
-                        <i class="fa-solid fa-angles-right"></i>
-                        <p>Fast and easy checkout</p>
-                    </div>
-                    <div class="reg_text">
-                        <i class="fa-solid fa-angles-right"></i>
-                        <p>Easy access to your order history and status</p>
-                    </div>
-                    <button class="continue">Continue</button>
-                </form>
-            </div>
-            <div class="log_in">
-                <h2>Already registed?</h2>
-                <p>Please log in below</p>
-                <h4>EMAIL ADDRESS <span>*</span></h4>
-                <form>
-                    <input type="text" class="email">
-                    <h4>PASSWORD <span>*</span></h4>
-                    <input type="text" class="pass">
-                    <p class="required">* Required Fileds</p>
-                    <button class="log_in_button" href="#">LOG IN</button>
-                    <a class="forgot" href="#">Forgot Password ?</a>
-                </form>
-            </div>
+<section class="products container">
+    <div class="products__type">
+        <div class="products__type__category">
+            <h2>CATEGORY</h2>
+            <p class="products__type__category__p">
+                <a href="#">Accessories</a> <br>
+                <a href="#">Bags</a> <br>
+                <a href="#">Denim</a> <br>
+                <a href="#">Hoodies & Sweatshirts</a> <br>
+                <a href="#">Jackets & Coats</a> <br>
+                <a href="#">Pants</a> <br>
+                <a href="#">Polos</a> <br>
+                <a href="#">Shirts</a> <br>
+                <a href="#">Shoes</a> <br>
+                <a href="#">Shorts</a> <br>
+                <a href="#">Sweaters & Knits</a> <br>
+                <a href="#">T-Shirts</a> <br>
+                <a href="#">Tanks</a> <br>
+            </p>
         </div>
-        <div class="line"></div>
+        <div class="products__type__category">
+            <div class="products__type__category__h2">
+                <h2>BRAND</h2>
+            </div>
+            <p class="products__type__category__p">
+                <a href="#">Accessories</a> <br>
+                <a href="#">Bags</a> <br>
+                <a href="#">Denim</a> <br>
+                <a href="#">Hoodies & Sweatshirts</a> <br>
+                <a href="#">Jackets & Coats</a> <br>
+                <a href="#">Pants</a> <br>
+                <a href="#">Polos</a> <br>
+                <a href="#">Shirts</a> <br>
+                <a href="#">Shoes</a> <br>
+                <a href="#">Shorts</a> <br>
+                <a href="#">Sweaters & Knits</a> <br>
+                <a href="#">T-Shirts</a> <br>
+                <a href="#">Tanks</a> <br>
+            </p>
+        </div>
+        <div class="products__type__category">
+            <div class="products__type__category__h2">
+                <h2>DESIGNER</h2>
+            </div>
+            <p class="products__type__category__p">
+                <a href="#">Accessories</a> <br>
+                <a href="#">Bags</a> <br>
+                <a href="#">Denim</a> <br>
+                <a href="#">Hoodies & Sweatshirts</a> <br>
+                <a href="#">Jackets & Coats</a> <br>
+                <a href="#">Pants</a> <br>
+                <a href="#">Polos</a> <br>
+                <a href="#">Shirts</a> <br>
+                <a href="#">Shoes</a> <br>
+                <a href="#">Shorts</a> <br>
+                <a href="#">Sweaters & Knits</a> <br>
+                <a href="#">T-Shirts</a> <br>
+                <a href="#">Tanks</a> <br>
+            </p>
+        </div>
     </div>
-    <div class="order_info">
-        <div class="a01"><h2>02. BILLING INFORMATION</h2></div>
-        <div class="adress_content">
-            <div class="register">
-                <h3>Check as a guest or register</h3>
-                <p>Register with us for future convenience</p>
-                <form>
-                    <div class="check">
-                        <input class="checkout_input" type="radio" name="reg">
-                        <span class="input_text">checkout as guest</span>
+    <div class="products__container">
+        <div class="products__container__filter">
+            <div class="products__container__filter__types">
+                <div class="products__container__filter__types__trending">
+                    <h2>TRENDING NOW</h2>
+                    <p><a href="#"> Bohemian</a> &ensp;|&ensp; <a href="#"> Floral</a> &ensp;|&ensp; <a href="#">
+                        Lace</a> <br>
+                        <a href="#"> Floral</a> &ensp;|&ensp; <a href="#"> Lace</a> &ensp;|&ensp; <a href="#">
+                            Bohemian</a></p>
+                </div>
+                <div class="products__container__filter__types__size">
+                    <h2>SIZE</h2>
+                    <div class="products__container__filter__types__size__inputs">
+                        <input type="checkbox">
+                        <p>XXS</p> <input type="checkbox">
+                        <p>XS</p> <input type="checkbox">
+                        <p>S</p> <input type="checkbox">
+                        <p>M</p>
+                        <input type="checkbox">
+                        <p>L</p> <input type="checkbox">
+                        <p>XL</p> <input type="checkbox">
+                        <p>XXL</p>
                     </div>
-                    <div class="reg">
-                        <input class="checkout_input" type="radio" name="reg">
-                        <span class="input_text">register</span>
+                </div>
+                <div class="products__container__filter__types__price">
+                    <h2>PRICE</h2>
+                    <input type="range" id="myRange" name="myRange" min="0" max="100" value="50">
+                    <div class="products__container__filter__types__price__numbers">
+                        <p>$52</p>
+                        <p>$400</p>
                     </div>
-                    <h3>register and save time!</h3>
-                    <p class="reg_text_reg">Register with us for future convenience</p>
-                    <div class="reg_text">
-                        <i class="fa-solid fa-angles-right"></i>
-                        <p>Fast and easy checkout</p>
-                    </div>
-                    <div class="reg_text">
-                        <i class="fa-solid fa-angles-right"></i>
-                        <p>Easy access to your order history and status</p>
-                    </div>
-                    <button class="continue">Continue</button>
-                </form>
+                </div>
             </div>
-            <div class="log_in">
-                <h2>Already registed?</h2>
-                <p>Please log in below</p>
-                <h4>EMAIL ADDRESS <span>*</span></h4>
-                <form>
-                    <input type="text" class="email">
-                    <h4>PASSWORD <span>*</span></h4>
-                    <input type="text" class="pass">
-                    <p class="required">* Required Fileds</p>
-                    <button class="log_in_button" href="#">LOG IN</button>
-                    <a class="forgot" href="#">Forgot Password ?</a>
-                </form>
+            <div class="products__container__filter__sort">
+                <p>Sort By</p>
+                <select>
+                    <option value="" disabled="" selected="">Name</option>
+                    <option>Vanur</option>
+                    <option>Huter</option>
+                </select>
+                <p>Show</p>
+                <select>
+                    <option value="" selected="">09</option>
+                    <option>10</option>
+                    <option>11</option>
+                </select>
             </div>
         </div>
-        <div class="line"></div>
+        <div class="products__container__content">
+            <div class="fetured__list__product products__container__content__item">
+                <img class="fetured__list__product_img" src="style/img/prod_items1.png" alt="prod_item1">
+                <div class="fetured__list__product__text">
+                    <a href="product.html" class="fetured__list__product__text__name">Mango People T-shirt</a>
+                    <a href="product.html" class="fetured__list__product__text__price">$52.00 <img src="style/img/star.png"
+                                                                                                   alt="stars"></a>
+                </div>
+                <a href="#" class="fetured__list__product__add">Add to Cart</a>
+            </div>
+            <div class="fetured__list__product products__container__content__item">
+                <img class="fetured__list__product_img" src="style/img/prod_items1.png" alt="prod_item1">
+                <div class="fetured__list__product__text">
+                    <a href="product.html" class="fetured__list__product__text__name">Mango People T-shirt</a>
+                    <a href="product.html" class="fetured__list__product__text__price">$52.00 <img src="style/img/star.png"
+                                                                                                   alt="stars"></a>
+                </div>
+                <a href="#" class="fetured__list__product__add">Add to Cart</a>
+            </div>
+            <div class="fetured__list__product products__container__content__item">
+                <img class="fetured__list__product_img" src="style/img/prod_items1.png" alt="prod_item1">
+                <div class="fetured__list__product__text">
+                    <a href="product.html" class="fetured__list__product__text__name">Mango People T-shirt</a>
+                    <a href="product.html" class="fetured__list__product__text__price">$52.00 <img src="style/img/star.png"
+                                                                                                   alt="stars"></a>
+                </div>
+                <a href="#" class="fetured__list__product__add">Add to Cart</a>
+            </div>
+            <div class="fetured__list__product products__container__content__item">
+                <img class="fetured__list__product_img" src="style/img/prod_items1.png" alt="prod_item1">
+                <div class="fetured__list__product__text">
+                    <a href="product.html" class="fetured__list__product__text__name">Mango People T-shirt</a>
+                    <a href="product.html" class="fetured__list__product__text__price">$52.00 <img src="style/img/star.png"
+                                                                                                   alt="stars"></a>
+                </div>
+                <a href="#" class="fetured__list__product__add">Add to Cart</a>
+            </div>
+            <div class="fetured__list__product products__container__content__item">
+                <img class="fetured__list__product_img" src="style/img/prod_items1.png" alt="prod_item1">
+                <div class="fetured__list__product__text">
+                    <a href="product.html" class="fetured__list__product__text__name">Mango People T-shirt</a>
+                    <a href="product.html" class="fetured__list__product__text__price">$52.00 <img src="style/img/star.png"
+                                                                                                   alt="stars"></a>
+                </div>
+                <a href="#" class="fetured__list__product__add">Add to Cart</a>
+            </div>
+            <div class="fetured__list__product products__container__content__item">
+                <img class="fetured__list__product_img" src="style/img/prod_items1.png" alt="prod_item1">
+                <div class="fetured__list__product__text">
+                    <a href="product.html" class="fetured__list__product__text__name">Mango People T-shirt</a>
+                    <a href="product.html" class="fetured__list__product__text__price">$52.00 <img src="style/img/star.png"
+                                                                                                   alt="stars"></a>
+                </div>
+                <a href="#" class="fetured__list__product__add">Add to Cart</a>
+            </div>
+        </div>
+        <div class="products__container__footer">
+            <div class="products__container__footer__page">
+                <img src="style/img/arrow-left.png" alt="arrow-left-products-page">
+                <p>
+                    <span>1</span>&emsp; <a href="#">2</a>&emsp; <a href="#">3</a>&emsp; <a href="#">4</a>&emsp;
+                    <a href="#">5</a>&emsp; <a href="#">6</a>.....<a href="#">20</a>
+                </p>
+                <img src="style/img/arrow-right_pink.png" alt="arrow-right-products-page">
+            </div>
+            <a href="#" class="products__container__footer__view">View All</a>
+        </div>
     </div>
-    <div class="order_info">
-        <div class="a01"><h2>03. SHIPPING INFORMATION</h2></div>
-        <div class="adress_content">
-            <div class="register">
-                <h3>Check as a guest or register</h3>
-                <p>Register with us for future convenience</p>
-                <form>
-                    <div class="check">
-                        <input class="checkout_input" type="radio" name="reg">
-                        <span class="input_text">checkout as guest</span>
-                    </div>
-                    <div class="reg">
-                        <input class="checkout_input" type="radio" name="reg">
-                        <span class="input_text">register</span>
-                    </div>
-                    <h3>register and save time!</h3>
-                    <p class="reg_text_reg">Register with us for future convenience</p>
-                    <div class="reg_text">
-                        <i class="fa-solid fa-angles-right"></i>
-                        <p>Fast and easy checkout</p>
-                    </div>
-                    <div class="reg_text">
-                        <i class="fa-solid fa-angles-right"></i>
-                        <p>Easy access to your order history and status</p>
-                    </div>
-                    <button class="continue">Continue</button>
-                </form>
+</section>
+<section class="goods">
+    <div class="goods__offer">
+        <figure>
+            <img class="goods__offer__img1" src="style/img/cur.svg" alt="cur">
+            <div class="goods__offer__text">
+                <h1>Free Delivery</h1>
+                <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.
+                </p>
             </div>
-            <div class="log_in">
-                <h2>Already registed?</h2>
-                <p>Please log in below</p>
-                <h4>EMAIL ADDRESS <span>*</span></h4>
-                <form>
-                    <input type="text" class="email">
-                    <h4>PASSWORD <span>*</span></h4>
-                    <input type="text" class="pass">
-                    <p class="required">* Required Fileds</p>
-                    <button class="log_in_button" href="#">LOG IN</button>
-                    <a class="forgot" href="#">Forgot Password ?</a>
-                </form>
+        </figure>
+        <figure>
+            <img class="goods__offer__img2" src="style/img/sale.svg" alt="sale">
+            <div class="goods__offer__text">
+                <h1>Sales & discounts</h1>
+                <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.
+                </p>
             </div>
-        </div>
-        <div class="line"></div>
-    </div>
-    <div class="order_info">
-        <div class="a01"><h2>04. SHIPPING METHOD</h2></div>
-        <div class="adress_content">
-            <div class="register">
-                <h3>Check as a guest or register</h3>
-                <p>Register with us for future convenience</p>
-                <form>
-                    <div class="check">
-                        <input class="checkout_input" type="radio" name="reg">
-                        <span class="input_text">checkout as guest</span>
-                    </div>
-                    <div class="reg">
-                        <input class="checkout_input" type="radio" name="reg">
-                        <span class="input_text">register</span>
-                    </div>
-                    <h3>register and save time!</h3>
-                    <p class="reg_text_reg">Register with us for future convenience</p>
-                    <div class="reg_text">
-                        <i class="fa-solid fa-angles-right"></i>
-                        <p>Fast and easy checkout</p>
-                    </div>
-                    <div class="reg_text">
-                        <i class="fa-solid fa-angles-right"></i>
-                        <p>Easy access to your order history and status</p>
-                    </div>
-                    <button class="continue">Continue</button>
-                </form>
+        </figure>
+        <figure>
+            <img class="goods__offer__img2" src="style/img/crown.svg" alt="crown">
+            <div class="goods__offer__text">
+                <h1>Quality assurance</h1>
+                <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.
+                </p>
             </div>
-            <div class="log_in">
-                <h2>Already registed?</h2>
-                <p>Please log in below</p>
-                <h4>EMAIL ADDRESS <span>*</span></h4>
-                <form>
-                    <input type="text" class="email">
-                    <h4>PASSWORD <span>*</span></h4>
-                    <input type="text" class="pass">
-                    <p class="required">* Required Fileds</p>
-                    <button class="log_in_button" href="#">LOG IN</button>
-                    <a class="forgot" href="#">Forgot Password ?</a>
-                </form>
-            </div>
-        </div>
-        <div class="line"></div>
-    </div>
-    <div class="order_info">
-        <div class="a01"><h2>05. PAYMENT METHOD</h2></div>
-        <div class="adress_content">
-            <div class="register">
-                <h3>Check as a guest or register</h3>
-                <p>Register with us for future convenience</p>
-                <form>
-                    <div class="check">
-                        <input class="checkout_input" type="radio" name="reg">
-                        <span class="input_text">checkout as guest</span>
-                    </div>
-                    <div class="reg">
-                        <input class="checkout_input" type="radio" name="reg">
-                        <span class="input_text">register</span>
-                    </div>
-                    <h3>register and save time!</h3>
-                    <p class="reg_text_reg">Register with us for future convenience</p>
-                    <div class="reg_text">
-                        <i class="fa-solid fa-angles-right"></i>
-                        <p>Fast and easy checkout</p>
-                    </div>
-                    <div class="reg_text">
-                        <i class="fa-solid fa-angles-right"></i>
-                        <p>Easy access to your order history and status</p>
-                    </div>
-                    <button class="continue">Continue</button>
-                </form>
-            </div>
-            <div class="log_in">
-                <h2>Already registed?</h2>
-                <p>Please log in below</p>
-                <h4>EMAIL ADDRESS <span>*</span></h4>
-                <form>
-                    <input type="text" class="email">
-                    <h4>PASSWORD <span>*</span></h4>
-                    <input type="text" class="pass">
-                    <p class="required">* Required Fileds</p>
-                    <button class="log_in_button" href="#">LOG IN</button>
-                    <a class="forgot" href="#">Forgot Password ?</a>
-                </form>
-            </div>
-        </div>
-        <div class="line"></div>
-    </div>
-    <div class="order_info">
-        <div class="a01"><h2>06. ORDER REVIEW</h2></div>
-        <div class="adress_content">
-            <div class="register">
-                <h3>Check as a guest or register</h3>
-                <p>Register with us for future convenience</p>
-                <form>
-                    <div class="check">
-                        <input class="checkout_input" type="radio" name="reg" id="checkout">
-                        <span class="input_text">checkout as guest</span>
-                    </div>
-                    <div class="reg">
-                        <input class="checkout_input" type="radio" name="reg" id="register">
-                        <span class="input_text">register</span>
-                    </div>
-                    <h3>register and save time!</h3>
-                    <p class="reg_text_reg">Register with us for future convenience</p>
-                    <div class="reg_text">
-                        <i class="fa-solid fa-angles-right"></i>
-                        <p>Fast and easy checkout</p>
-                    </div>
-                    <div class="reg_text">
-                        <i class="fa-solid fa-angles-right"></i>
-                        <p>Easy access to your order history and status</p>
-                    </div>
-                    <button class="continue">Continue</button>
-                </form>
-            </div>
-            <div class="log_in">
-                <h2>Already registed?</h2>
-                <p>Please log in below</p>
-                <h4>EMAIL ADDRESS <span>*</span></h4>
-                <form>
-                    <input type="text" class="email">
-                    <h4>PASSWORD <span>*</span></h4>
-                    <input type="text" class="pass">
-                    <p class="required">* Required Fileds</p>
-                    <button class="log_in_button" href="#">LOG IN</button>
-                    <a class="forgot" href="#">Forgot Password ?</a>
-                </form>
-            </div>
-        </div>
-        <div class="line"></div>
+        </figure>
     </div>
 </section>
 <div class="subscribe__block">
     <div class="subscribe__content container">
         <div class="quote">
-            <img src="img/face.jpg" alt="face">
+            <img src="style/img/face.jpg" alt="face">
             <div class="quote__content">
                 <p class="quote__text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
                     a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</p>
@@ -696,7 +640,7 @@
     <div class="footer_content container">
         <div class="description">
             <a href="#" class="logo">
-                <img class="logo__img" src="img/logo.png" alt="logo"> <span class="logo__bran">BRAN</span><span
+                <img class="logo__img" src="style/img/logo.png" alt="logo"> <span class="logo__bran">BRAN</span><span
                     class="logo__bran-d">D</span>
             </a>
             <p class="description__text">
@@ -743,11 +687,11 @@
         <div class="bottom__content container">
             <p class="copyright">&copy;&nbsp;2017 Brand All Rights Reserved.</p>
             <div class="share">
-                <a class="share__none" href="#"><img src="img/facebook.png" alt="facebook"></a>
-                <a class="share__confirm" href="#"><img src="img/twitter.png" alt="twitter"></a>
-                <a class="share__none" href="#"><img src="img/in.png" alt="in"></a>
-                <a class="share__none" href="#"><img src="img/pint.png" alt="pint"></a>
-                <a class="share__none" href="#"><img src="img/google.png" alt="google"></a>
+                <a class="share__none" href="#"><img src="style/img/facebook.png" alt="facebook"></a>
+                <a class="share__confirm" href="#"><img src="style/img/twitter.png" alt="twitter"></a>
+                <a class="share__none" href="#"><img src="style/img/in.png" alt="in"></a>
+                <a class="share__none" href="#"><img src="style/img/pint.png" alt="pint"></a>
+                <a class="share__none" href="#"><img src="style/img/google.png" alt="google"></a>
             </div>
         </div>
     </div>

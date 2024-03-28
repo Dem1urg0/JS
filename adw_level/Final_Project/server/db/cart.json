@@ -2,12 +2,44 @@
     "full_price": 0,
     "products": [
         {
-            "quantity": 1,
-            "id": 509,
-            "name": "Boots",
-            "price": 1200,
+            "quantity": 4,
+            "id": 634,
+            "name": "Jeans",
+            "price": 900,
+            "gender": "man",
+            "img": "style/img/item-6.jpg"
+        },
+        {
+            "quantity": 5,
+            "id": 722,
+            "name": "Jeans",
+            "price": 900,
+            "gender": "man",
+            "img": "style/img/item-7.jpg"
+        },
+        {
+            "quantity": 4,
+            "id": 907,
+            "name": "Jeans",
+            "price": 900,
+            "gender": "man",
+            "img": "style/img/item-8.jpg"
+        },
+        {
+            "quantity": 2,
+            "id": 265,
+            "name": "Dress",
+            "price": 700,
             "gender": "woman",
-            "img": "html/img/item-4.jpg"
+            "img": "style/img/item-3.jpg"
+        },
+        {
+            "quantity": 3,
+            "id": 121,
+            "name": "Socks",
+            "price": 100,
+            "gender": "unisex",
+            "img": "style/img/item-2.jpg"
         }
     ]
 }
