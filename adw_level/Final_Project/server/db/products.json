@@ -36,22 +36,57 @@
   },
   {
     "id": 634,
-    "name": "Jeans",
-    "price": 900,
+    "name": "Prod1",
+    "price": 901,
     "gender": "man",
     "img": "style/img/item-6.jpg"
   },
   {
     "id": 722,
-    "name": "Jeans",
-    "price": 900,
+    "name": "Prod2",
+    "price": 950,
     "gender": "man",
     "img": "style/img/item-7.jpg"
   },
   {
-    "id": 907,
-    "name": "Jeans",
-    "price": 900,
+    "id": 819,
+    "name": "Prod3",
+    "price": 120,
+    "gender": "man",
+    "img": "style/img/item-8.jpg"
+  },
+  {
+    "id": 956,
+    "name": "Prod4",
+    "price": 970,
+    "gender": "man",
+    "img": "style/img/item-8.jpg"
+  },
+  {
+    "id": 371,
+    "name": "Prod5",
+    "price": 980,
+    "gender": "man",
+    "img": "style/img/item-8.jpg"
+  },
+  {
+    "id": 566,
+    "name": "Prod6",
+    "price": 990,
+    "gender": "man",
+    "img": "style/img/item-8.jpg"
+  },
+  {
+    "id": 165,
+    "name": "Prod7",
+    "price": 909,
+    "gender": "man",
+    "img": "style/img/item-8.jpg"
+  },
+  {
+    "id": 372,
+    "name": "Prod8",
+    "price": 987,
     "gender": "man",
     "img": "style/img/item-8.jpg"
   }

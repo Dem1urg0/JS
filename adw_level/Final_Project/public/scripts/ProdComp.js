@@ -106,21 +106,25 @@ Vue.component('prod-recom', {
         return {
             items: {
                 prod1: {
+                    id: 981,
                     img: 1,
                     name: 'Mango People T-shirt',
                     price: 52
                 },
                 prod2: {
+                    id: 982,
                     img: 2,
                     name: 'Mango People T-shirt',
                     price: 52
                 },
                 prod3: {
+                    id: 983,
                     img: 3,
                     name: 'Mango People T-shirt',
                     price: 52
                 },
                 prod4: {
+                    id: 984,
                     img: 4,
                     name: 'Mango People T-shirt',
                     price: 52
@@ -143,6 +147,162 @@ Vue.component('prod-recom', {
                 alt="stars"></a>
           </div>
           <button class="fetured__list__product__add" @click="$root.$refs.cart.addProduct(item)">Add to Cart</button>
+        </div>
+      </div>
+    `
+})
+Vue.component('products-page-items', {
+    props: ['prodItems'],
+    template: `
+      <div class="products-page__list">
+        <div class="fetured__list__product products-page__list__product" v-for="item of prodItems" :key="item.id">
+          <img class="fetured__list__product_img" :src="item.img">
+          <div class="fetured__list__product__text">
+            <a href="/product.html" class="fetured__list__product__text__name">{{ item.name }}</a>
+            <a href="/product.html" class="fetured__list__product__text__price">$ {{ item.price }}<img
+                src="style/img/star.png"
+                alt="stars"></a>
+          </div>
+          <button class="fetured__list__product__add" @click="$root.$refs.cart.addProduct(item)">Add to Cart</button>
+        </div>
+      </div>
+    `
+})
+Vue.component('product-page', {
+    data() {
+        return {
+            prodItems: [],
+            filteredItems: [],
+            renderProdItems: [],
+            minPrice: 0,
+            maxPrice: 0,
+            input1: 0,
+            input2: 0,
+            countShow: 9,
+            sortType: 'none',
+        }
+    },
+    mounted() {
+        this.$parent.getJson(`/api/products`)
+            .then(data => {
+                if (data) {
+                    for (let el of data) {
+                        this.prodItems.push(el);
+                    }
+                }
+                this.calculateMinMax();
+                this.filterPrice()
+                this.showBlocks()
+            })
+            .catch(error => {
+                console.error('Error fetching cart data:', error);
+            });
+    },
+    methods: {
+        calculateMinMax() {
+            this.minPrice = Math.min(...this.prodItems.map(item => item.price));
+            this.maxPrice = Math.max(...this.prodItems.map(item => item.price));
+            this.input1 = this.minPrice;
+            this.input2 = this.maxPrice;
+        },
+        filterPrice() {
+            let minInput = Math.min(this.input1, this.input2);
+            let maxInput = Math.max(this.input1, this.input2);
+            this.filteredItems = this.prodItems.filter(item => item.price >= minInput && item.price <= maxInput);
+            this.sortBy()
+            this.showBlocks()
+        },
+        changeSortType(event) {
+            this.sortType = event.target.value;
+            this.sortBy()
+        },
+        sortBy() {
+            if (this.sortType === "Name") {
+                this.filteredItems.sort((a, b) => a.name > b.name ? 1 : -1);
+            }
+            if (this.sortType === "Price") {
+                this.filteredItems.sort((a, b) => a.price > b.price ? 1 : -1);
+            }
+            this.showBlocks();
+        },
+        countBlockchange(event){
+            this.countShow = event.target.value;
+            this.showBlocks()
+        },
+        showBlocks(event) {
+            this.renderProdItems = this.filteredItems.slice(0, this.countShow);        }
+    },
+    template: `
+      <div class="products__container">
+        <div class="products__container__filter">
+          <div class="products__container__filter__types">
+            <div class="products__container__filter__types__trending">
+              <h2>TRENDING NOW</h2>
+              <p><a href="#"> Bohemian</a> &ensp;|&ensp; <a href="#"> Floral</a> &ensp;|&ensp; <a href="#">
+                Lace</a> <br>
+                <a href="#"> Floral</a> &ensp;|&ensp; <a href="#"> Lace</a> &ensp;|&ensp; <a href="#">
+                  Bohemian</a></p>
+            </div>
+            <div class="products__container__filter__types__size">
+              <h2>SIZE</h2>
+              <div class="products__container__filter__types__size__inputs">
+                <input type="checkbox">
+                <p>XXS</p> <input type="checkbox">
+                <p>XS</p> <input type="checkbox">
+                <p>S</p> <input type="checkbox">
+                <p>M</p>
+                <input type="checkbox">
+                <p>L</p> <input type="checkbox">
+                <p>XL</p> <input type="checkbox">
+                <p>XXL</p>
+              </div>
+            </div>
+            <div class="products__container__filter__types__price">
+              <h2>PRICE</h2>
+              <div style="margin-top: 10px; display: flex">
+                <input type="range" id="myRange" name="myRange" :min="minPrice" :max="maxPrice"
+                       value="{{minPrice}}" v-model=input1 @input="filterPrice">
+                <p style="margin-left: 10px;">{{ input1 }}</p>
+              </div>
+              <div style="margin-top: 10px; display: flex">
+                <input type="range" id="myRange" name="myRange" :min="minPrice" :max="maxPrice"
+                       value="{{maxPrice}}" v-model=input2 @input="filterPrice">
+                <p style="margin-left: 10px;">{{ input2 }}</p>
+              </div>
+              <div class="products__container__filter__types__price__numbers">
+                <p>$ {{ minPrice }}</p>
+                <p>$ {{ maxPrice }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="products__container__filter__sort">
+            <p>Sort By</p>
+            <select @change="changeSortType">
+              <option disabled="" selected="">sort</option>
+              <option value="Name">Name</option>
+              <option value="Price">Price</option>
+            </select>
+            <p>Show</p>
+            <select @change="countBlockchange">
+              <option selected="" value="9">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+            </select>
+          </div>
+        </div>
+        <div class="products__container__content">
+          <products-page-items ref="productsPageItems" :prodItems="renderProdItems"></products-page-items>
+        </div>
+        <div class="products__container__footer">
+          <div class="products__container__footer__page">
+            <img src="style/img/arrow-left.png" alt="arrow-left-products-page">
+            <p>
+              <span>1</span>&emsp; <a href="#">2</a>&emsp; <a href="#">3</a>&emsp; <a href="#">4</a>&emsp;
+              <a href="#">5</a>&emsp; <a href="#">6</a>.....<a href="#">20</a>
+            </p>
+            <img src="style/img/arrow-right_pink.png" alt="arrow-right-products-page">
+          </div>
+          <a href="#" class="products__container__footer__view">View All</a>
         </div>
       </div>
     `

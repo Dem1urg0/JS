@@ -45,7 +45,7 @@ Vue.component('drop-def',{
     },
     template: `
       <ul class="menu">
-        <li class="menu__list active_list"><a href="index.html" class="menu__link">Home</a></li>
+        <li class="menu__list"><a href="index.html" class="menu__link">Home</a></li>
         <div v-for="item of titles">
           <li class="menu__list"><a href="" class="menu__link">{{ item }}</a>
             <div class="drop drop_middle">

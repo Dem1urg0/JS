@@ -4,7 +4,6 @@ const add = (cart, req) => {
 }
 const change = (cart, req) => {
     const find = cart.products.find(el => el.id === +req.params.id);
-    console.log(find)
     find.quantity += req.body.quantity;
     return JSON.stringify(cart, null, 4);
 }
