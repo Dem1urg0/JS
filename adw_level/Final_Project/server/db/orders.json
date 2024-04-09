@@ -1,5 +1,46 @@
 [
-  {
-
-  }
+    {
+        "address": {
+            "country": "fw",
+            "city": "fwe",
+            "address": "fw",
+            "zip": "432"
+        },
+        "billing": {
+            "first": "dsf",
+            "second": "fsd",
+            "sur": "sd"
+        },
+        "shipping": {
+            "method": "airplane"
+        },
+        "cart": {
+            "products": [
+                {
+                    "quantity": 12,
+                    "id": 121,
+                    "name": "Socks",
+                    "price": 100,
+                    "gender": "unisex",
+                    "img": "style/img/item-2.jpg"
+                },
+                {
+                    "quantity": 1,
+                    "id": 509,
+                    "name": "Boots",
+                    "price": 1200,
+                    "gender": "woman",
+                    "img": "style/img/item-4.jpg"
+                },
+                {
+                    "quantity": 1,
+                    "id": 265,
+                    "name": "Dress",
+                    "price": 700,
+                    "gender": "woman",
+                    "img": "style/img/item-3.jpg"
+                }
+            ]
+        }
+    }
 ]

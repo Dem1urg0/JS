@@ -210,7 +210,7 @@ Vue.component('cart-page-items', {
           </div>
           <div class="line"></div>
         </div>
-
+        <h3 style="display: flex;justify-content: end;color: #656565;">TOTAL PRICE: {{totalPrice}}</h3>
       </div>
     `
 })

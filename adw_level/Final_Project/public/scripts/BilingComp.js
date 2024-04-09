@@ -21,7 +21,7 @@ Vue.component('billing-page', {
                     address: {
                         country: false,
                         city: false,
-                        adress: false,
+                        address: false,
                         zip: false,
                     },
                     billing: {
@@ -77,28 +77,43 @@ Vue.component('billing-page', {
                     }
                 })
             },
-            //todo сделать блок totalprice
-            //todo исправить отправку заказа
-            //todo добавить корзину к заказу на сервере
             CheckAllBlocks() {
-                Object.entries(this.blocksError).forEach(([key, value]) => {
-                    if (value){
-                        return false
-                    } else {
-                        return true
+                return !Object.entries(this.blocksError).some(([key, value]) => {
+                    return Object.values(value).some(bool => bool);
+                });
+            },
+            Order() {
+                return {
+                    address: {
+                        country: this.userData.address.country.value,
+                        city: this.userData.address.city.value,
+                        address: this.userData.address.address.value,
+                        zip: this.userData.address.zip.value,
+                    },
+                    billing: {
+                        first: this.userData.billing.first.value,
+                        second: this.userData.billing.second.value,
+                        sur: this.userData.billing.sur.value,
+                    },
+                    shipping: {
+                        method: this.userData.shipping.method.value,
                     }
-                })
+                }
             },
             SendOrder(){
                 // проверка всех полей на валидность
-                this.userData.forEach((item, index) => {
-                    let name = item[0]
-                    this.ValidTest(name)
+                Object.keys(this.userData).forEach((key, index) => {
+                    this.ValidTest(key)
                 })
                 if (this.CheckAllBlocks()){
-                    this.$root.postJson(`/api/order`, this.userData)
+                    this.$root.postJson(`/api/order`, JSON.parse(JSON.stringify(this.Order())))
+                    alert('Заказ отправлен')
+                    // location.reload();
+                } else {
+                    alert('Заполните все поля')
                 }
-            }
+            },
+
         },
         template: `
           <section class="arrivals__info container">
